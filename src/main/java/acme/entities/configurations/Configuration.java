@@ -1,7 +1,9 @@
 package acme.entities.configurations;
 
+import java.util.HashMap;
+
 import javax.persistence.Entity;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Range;
 
@@ -13,20 +15,17 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Configuration extends DomainEntity {
-	
-	// Serialisation identifier -----------------------------------------------
 
-		protected static final long	serialVersionUID	= 1L;
+    // Serialisation identifier -----------------------------------------------
 
-		// Attributes -------------------------------------------------------------
+        protected static final long    serialVersionUID    = 1L;
 
-		@NotBlank
-		protected String				spamWordsEN;
-		
-		@NotBlank
-		protected String				spamWordsES;
+        // Attributes -------------------------------------------------------------
 
-		@Range(min = 0, max = 100)
-		protected Double				threshold;
+        @NotNull
+        protected HashMap<String, String>    spamWords;
+
+        @Range(min = 0, max = 100)
+        protected Double                threshold;
 
 }

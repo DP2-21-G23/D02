@@ -13,12 +13,25 @@
 -->
 
 <beans 
-	xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
->
-
-	<import resource="classpath:/WEB-INF/population/conversion-service.xml"/>
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
+    xmlns:util="http://www.springframework.org/schema/util" >
+    
+    <import resource="classpath:/WEB-INF/population/conversion-service.xml"/>
+    
+    <!-- Configuration -->
+    
+    <bean id="configuration1" class="acme.entities.configurations.Configuration">
+        <property name="spamWords">
+            <util:map map-class="java.util.HashMap">
+                <entry key="en" value="sex, hard core, viagra, cialis, Nigeria, you've won, million dolar"/>
+                <entry key="es" value="sexo, hard core, viagra, cialis, Nigeria, has ganado, millón de dólares"/>
+            </util:map>
+        </property>        
+        <property name="threshold" value="10.0"/>
+    </bean>
 	
 	<!-- Anonymous user -->
 
@@ -72,13 +85,6 @@
 	<bean name="administratorAuthenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="administratorUserAccount" />
 	</bean>
-	
-	<!-- Configuration -->
-	
-	<bean id="configuration1" class="acme.entities.configurations.Configuration">
-		<property name="spamWordsEN" value="sex, hard core, viagra, cialis, Nigeria, you've won, million dolar "/>
-		<property name="spamWordsES" value="sexo, hard core, viagra, cialis, Nigeria, has ganado, millón de dolares "/>		
-		<property name="threshold" value="10.0"/>
-	</bean>
+
 	
 </beans>
