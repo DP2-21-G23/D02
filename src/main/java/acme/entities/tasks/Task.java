@@ -53,5 +53,7 @@ public class Task extends DomainEntity {
 	
 	@URL
 	protected String link;
+	
+	protected Boolean isPublic;
 
 }

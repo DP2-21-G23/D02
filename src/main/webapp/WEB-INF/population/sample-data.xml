@@ -80,6 +80,7 @@
 		<property name="workloadFraction"><null/></property>
 		<property name="description" value="Esta es la descripción de la tarea 1" />
 		<property name="link"><null/></property>
+		<property name="isPublic" value="False" />
 	</bean>
 	
 	<bean id="task2" class="acme.entities.tasks.Task">
@@ -90,6 +91,7 @@
 		<property name="workloadFraction"><null/></property>
 		<property name="description" value="Esta es la descripción de la tarea 2" />
 		<property name="link" value="https://www.google.com/" />
+		<property name="isPublic" value="False" />
 	</bean>
 	
 	<bean id="task3" class="acme.entities.tasks.Task">
@@ -100,6 +102,7 @@
 		<property name="workloadFraction"><null/></property>
 		<property name="description" value="Esta es la descripción de la tarea 3" />
 		<property name="link"><null/></property>
+		<property name="isPublic" value="True" />
 	</bean>
 
 	<bean id="task4" class="acme.entities.tasks.Task">
@@ -110,6 +113,7 @@
 		<property name="workloadFraction" value="30" />
 		<property name="description" value="Esta es la descripción de la tarea 4" />
 		<property name="link" value="https://www.google.com/" />
+		<property name="isPublic" value="False" />
 	</bean>
 	
 	<bean id="task5" class="acme.entities.tasks.Task">
@@ -120,6 +124,7 @@
 		<property name="workloadFraction"><null/></property>
 		<property name="description" value="Esta es la descripción de la tarea 5" />
 		<property name="link"><null/></property>
+		<property name="isPublic" value="True" />
 	</bean>
 	
 	<bean id="task6" class="acme.entities.tasks.Task">
@@ -130,6 +135,7 @@
 		<property name="workloadFraction" value="20" />
 		<property name="description" value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop p" />
 		<property name="link" value="https://www.google.com/" />
+		<property name="isPublic" value="True" />
 	</bean>
 	
 </beans>
