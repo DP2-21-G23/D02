@@ -87,4 +87,33 @@
 	</bean>
 
 	
+	<!-- Managers -->
+	
+	<bean name="managerUserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="manager" />
+		<property name="password" value="manager" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Manager" />
+				<property name="surname" value="Acme.com" />
+				<property name="email" value="manager@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="managerManager" />
+				<ref bean="managerAuthenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="managerManager" class="acme.entities.roles.Manager">
+		<property name="userAccount" ref="managerUserAccount" />
+	</bean>
+	
+	<bean name="managerAuthenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="managerUserAccount" />
+	</bean>
+	
 </beans>
