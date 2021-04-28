@@ -204,6 +204,39 @@
 		<property name="isPublic" value="False" />
 	</bean>	
 	
+	<bean id="task13" class="acme.entities.tasks.Task">
+		<property name="title" value="Tarea 13" />
+		<property name="startMoment" value="2021/01/23 8:20" />
+		<property name="endMoment" value="2021/01/24 14:50" />
+		<property name="workloadHours" value="4" />
+		<property name="workloadFraction" ><null/></property>
+		<property name="description" value="Esta es la descripción de la tarea 13" />
+		<property name="link" value="https://www.google.com/" />
+		<property name="isPublic" value="True" />
+	</bean>
+	
+	<bean id="task14" class="acme.entities.tasks.Task">
+		<property name="title" value="Tarea 14" />
+		<property name="startMoment" value="2021/01/18 11:15" />
+		<property name="endMoment" value="2021/02/21 08:35" />
+		<property name="workloadHours" value="20" />
+		<property name="workloadFraction" ><null/></property>
+		<property name="description" value="Esta es la descripción de la tarea 14" />
+		<property name="link"><null/></property>
+		<property name="isPublic" value="False" />
+	</bean>
+	
+	<bean id="task15" class="acme.entities.tasks.Task">
+		<property name="title" value="Tarea 15" />
+		<property name="startMoment" value="2021/01/10 07:00" />
+		<property name="endMoment" value="2021/03/28 22:15" />
+		<property name="workloadHours" value="35" />
+		<property name="workloadFraction" ><null/></property>
+		<property name="description" value="Esta es la descripción de la tarea 15" />
+		<property name="link"><null/></property>
+		<property name="isPublic" value="True" />
+	</bean>
+	
 	<!-- Workplans -->
 	
 	<bean id="workplan01" class="acme.entities.workplans.Workplan">
