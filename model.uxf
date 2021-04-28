@@ -318,8 +318,8 @@ Shout
     <coordinates>
       <x>108</x>
       <y>816</y>
-      <w>456</w>
-      <h>204</h>
+      <w>468</w>
+      <h>216</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Task
@@ -330,14 +330,15 @@ Task
 + workloadHours: Integer {NotNull}
 + workloadFraction: Integer {Range(min=0, max=59)}
 + description: String (NotBlank}
-+ link: String (URL)</panel_attributes>
++ link: String (URL)
++ isPublic: Boolean {NotNull}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
       <x>336</x>
-      <y>1032</y>
+      <y>1044</y>
       <w>312</w>
       <h>96</h>
     </coordinates>
@@ -352,7 +353,7 @@ bg=blue</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>276</x>
-      <y>1008</y>
+      <y>1020</y>
       <w>84</w>
       <h>96</h>
     </coordinates>
