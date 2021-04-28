@@ -70,4 +70,72 @@
 		<property name="info" value="http://konosuba.com/" />
 	</bean>
 	
+	<!-- Tasks -->
+	
+	<bean id="task1" class="acme.entities.tasks.Task">
+		<property name="title" value="Tarea 1" />
+		<property name="startMoment" value="2022/12/04 11:00" />
+		<property name="endMoment" value="2022/12/07 12:00" />
+		<property name="workloadHours" value="10" />
+		<property name="workloadFraction"><null/></property>
+		<property name="description" value="Esta es la descripción de la tarea 1" />
+		<property name="link"><null/></property>
+		<property name="isPublic" value="False" />
+	</bean>
+	
+	<bean id="task2" class="acme.entities.tasks.Task">
+		<property name="title" value="Tarea 2" />
+		<property name="startMoment" value="2022/08/10 11:00" />
+		<property name="endMoment" value="2022/09/10 12:00" />
+		<property name="workloadHours" value="100" />
+		<property name="workloadFraction"><null/></property>
+		<property name="description" value="Esta es la descripción de la tarea 2" />
+		<property name="link" value="https://www.google.com/" />
+		<property name="isPublic" value="False" />
+	</bean>
+	
+	<bean id="task3" class="acme.entities.tasks.Task">
+		<property name="title" value="Tarea 3" />
+		<property name="startMoment" value="2022/08/04 11:00" />
+		<property name="endMoment" value="2022/08/15 12:00" />
+		<property name="workloadHours" value="20" />
+		<property name="workloadFraction"><null/></property>
+		<property name="description" value="Esta es la descripción de la tarea 3" />
+		<property name="link"><null/></property>
+		<property name="isPublic" value="True" />
+	</bean>
+
+	<bean id="task4" class="acme.entities.tasks.Task">
+		<property name="title" value="Tarea 4" />
+		<property name="startMoment" value="2022/04/20 11:00" />
+		<property name="endMoment" value="2022/04/25 12:00" />
+		<property name="workloadHours" value="5" />
+		<property name="workloadFraction" value="30" />
+		<property name="description" value="Esta es la descripción de la tarea 4" />
+		<property name="link" value="https://www.google.com/" />
+		<property name="isPublic" value="False" />
+	</bean>
+	
+	<bean id="task5" class="acme.entities.tasks.Task">
+		<property name="title" value="Tarea 5" />
+		<property name="startMoment" value="2022/05/03 11:00" />
+		<property name="endMoment" value="2022/05/23 12:00" />
+		<property name="workloadHours" value="30" />
+		<property name="workloadFraction"><null/></property>
+		<property name="description" value="Esta es la descripción de la tarea 5" />
+		<property name="link"><null/></property>
+		<property name="isPublic" value="True" />
+	</bean>
+	
+	<bean id="task6" class="acme.entities.tasks.Task">
+		<property name="title" value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem" />
+		<property name="startMoment" value="2022/11/15 11:00" />
+		<property name="endMoment" value="2022/11/15 11:00" />
+		<property name="workloadHours" value="0" />
+		<property name="workloadFraction" value="20" />
+		<property name="description" value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop p" />
+		<property name="link" value="https://www.google.com/" />
+		<property name="isPublic" value="True" />
+	</bean>
+	
 </beans>
