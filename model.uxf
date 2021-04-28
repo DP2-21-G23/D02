@@ -299,10 +299,26 @@ has v</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>12</x>
-      <y>648</y>
-      <w>444</w>
-      <h>156</h>
+      <x>399</x>
+      <y>357</y>
+      <w>210</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Configuration
+--
++ spamWordsEN: String {NotBlank}
++ spamWordsES: String {NotBlank}
++ spamThreshold: double {Range(0, 100)}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>119</x>
+      <y>357</y>
+      <w>259</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Shout
