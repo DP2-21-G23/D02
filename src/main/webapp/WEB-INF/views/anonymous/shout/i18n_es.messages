@@ -8,8 +8,9 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.consumer.consumer.form.title.create = Hazte trabajador
-authenticated.consumer.consumer.form.title.update = Actualiza tus datos de trabajador
+anonymous.shout.list.label.moment = Fecha
+anonymous.shout.list.label.author = Autor
+anonymous.shout.list.label.text = Texto
 
 anonymous.shout.form.label.moment = Momento:
 anonymous.shout.form.label.author = Autor:
@@ -19,6 +20,5 @@ anonymous.shout.form.label.info = Info:
 anonymous.shout.form.button.create = ¡Grita!
 anonymous.shout.form.button.return = Volver
 
-anonymous.shout.list.label.moment = Fecha
-anonymous.shout.list.label.author = Autor
-anonymous.shout.list.label.text = Texto
+anonymous.shout.form.error.spam.is-spam = Este grito es spam, por lo que no se puede publicar
+anonymous.shout.form.error.spam.has-errors = Ha ocurrido un error, por favor refresque e inténtelo de nuevo
