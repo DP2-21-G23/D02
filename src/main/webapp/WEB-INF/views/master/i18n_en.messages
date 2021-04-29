@@ -31,6 +31,12 @@ master.menu.sign-out = Sign out
 master.menu.anonymous = Anonymous
 master.menu.anonymous.shout.create = Shout!
 master.menu.anonymous.shout.list = Shouts list
+master.menu.anonymous.task.list = Tasks list
+
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.task.list = Tasks list
 
 # master.menu.administrator ###################################################
 
