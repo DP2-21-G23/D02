@@ -32,6 +32,7 @@ master.menu.anonymous = Anónimo
 master.menu.anonymous.shout.create = ¡Grita!
 master.menu.anonymous.shout.list = Lista de gritos
 master.menu.anonymous.task.list = Lista de tareas
+master.menu.anonymous.workplan.list = Lista de planes de trabajo
 
 # master.menu.authenticated #######################################################
 

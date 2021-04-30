@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -39,17 +40,22 @@ public class Workplan extends DomainEntity {
 	
 	// -------------- Relationships --------------
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	protected Collection<Task> tasks;
 	
 	@Transient
-	public Integer getWorkload() {
-		Integer res = 0;
+	public String getWorkload() {
+		String res = "";
+		Integer auxH = 0;
+		Integer auxM = 0;
 		for(final Task t : this.tasks) {
-			res += t.getWorkloadHours()*60;
+			auxH += t.getWorkloadHours();
 			if(t.getWorkloadFraction()==null) continue;
-			res+=t.getWorkloadFraction();
+			auxM+=t.getWorkloadFraction();
 		}
+		auxH += auxM/60;
+		auxM = auxM % 60;
+		res = auxH + "h. " + auxM + "min.";
 		return res;
 	}
 }

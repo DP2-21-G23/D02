@@ -29,4 +29,7 @@ public interface AnonymousTaskRepository extends AbstractRepository {
 
 	@Query("select t from Task t where t.id = :id")
 	Task findOneTaskById(@Param("id") int id);
+
+	@Query("select w.tasks from Workplan w where w.id = ?1")
+	Collection<Task> findManyByWorkplanId(int workplanId);
 }

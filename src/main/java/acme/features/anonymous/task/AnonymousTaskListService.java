@@ -55,7 +55,12 @@ public class AnonymousTaskListService implements AbstractListService<Anonymous, 
 		assert request != null;
 
 		Collection<Task> result;
-		result = this.repository.findMany();
+		if(request.getModel().hasAttribute("workplanId")) {
+			result = this.repository.findManyByWorkplanId(request.getModel().getInteger("workplanId"));
+		}else {
+			result = this.repository.findMany();
+		}
+		
 
 		return result;
 	}
