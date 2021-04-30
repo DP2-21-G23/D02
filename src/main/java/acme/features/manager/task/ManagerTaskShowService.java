@@ -10,24 +10,24 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.anonymous.task;
+package acme.features.manager.task;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.roles.Manager;
 import acme.entities.tasks.Task;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Anonymous;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class AnonymousTaskShowService implements AbstractShowService<Anonymous, Task> {
+public class ManagerTaskShowService implements AbstractShowService<Manager, Task> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnonymousTaskRepository repository;
+	protected ManagerTaskRepository repository;
 
 	// AbstractShowService<Anonymous, Shout> interface --------------
 
@@ -43,12 +43,9 @@ public class AnonymousTaskShowService implements AbstractShowService<Anonymous, 
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
-		model.setAttribute("ownerName", entity.getOwner().getIdentity().getFullName());
 
 		request.unbind(entity, model, "title", "startMoment", "endMoment", "workloadHours", "workloadFraction",
-			"description", "link", "owner");
-		
+			"description", "link", "isPublic");
 	}
 
 	@Override

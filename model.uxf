@@ -332,8 +332,8 @@ Shout
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>11</x>
-      <y>814</y>
+      <x>759</x>
+      <y>671</y>
       <w>429</w>
       <h>198</h>
     </coordinates>
@@ -353,8 +353,8 @@ Task
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>154</x>
-      <y>1034</y>
+      <x>869</x>
+      <y>924</y>
       <w>286</w>
       <h>88</h>
     </coordinates>
@@ -368,20 +368,20 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>66</x>
-      <y>1001</y>
-      <w>110</w>
-      <h>99</h>
+      <x>814</x>
+      <y>858</y>
+      <w>77</w>
+      <h>132</h>
     </coordinates>
     <panel_attributes>lt=..
 </panel_attributes>
-    <additional_attributes>10.0;10.0;80.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;50.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>605</x>
-      <y>847</y>
+      <x>1353</x>
+      <y>704</y>
       <w>451</w>
       <h>110</h>
     </coordinates>
@@ -396,8 +396,8 @@ Workplan
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>429</x>
-      <y>869</y>
+      <x>1177</x>
+      <y>726</y>
       <w>198</w>
       <h>55</h>
     </coordinates>
@@ -411,7 +411,7 @@ m2=0..*
     <id>UMLClass</id>
     <coordinates>
       <x>803</x>
-      <y>440</y>
+      <y>429</y>
       <w>231</w>
       <h>88</h>
     </coordinates>
@@ -426,9 +426,23 @@ Manager
       <x>902</x>
       <y>319</y>
       <w>88</w>
-      <h>143</h>
+      <h>132</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>60.0;10.0;10.0;110.0</additional_attributes>
+    <additional_attributes>60.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>946</x>
+      <y>506</y>
+      <w>77</w>
+      <h>187</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1=1
+m2=0..*
+&lt; has</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
   </element>
 </diagram>

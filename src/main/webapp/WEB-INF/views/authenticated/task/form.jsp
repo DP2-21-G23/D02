@@ -24,6 +24,7 @@
 	<acme:form-integer code="authenticated.task.form.label.workloadFraction" path="workloadFraction"/>
 	<acme:form-textarea code="authenticated.task.form.label.description" path="description"/>
 	<acme:form-url code="authenticated.task.form.label.link" path="link"/>
+	<acme:form-textbox code="authenticated.task.form.label.owner" path="ownerName"/>
 	
 	<acme:form-return code="authenticated.task.form.button.return"/>
 	
