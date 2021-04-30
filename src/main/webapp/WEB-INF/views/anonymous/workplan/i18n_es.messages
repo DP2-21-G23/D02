@@ -8,16 +8,14 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-anonymous.task.form.label.title = Título:
-anonymous.task.form.label.startMoment = Fecha inicio:
-anonymous.task.form.label.endMoment = Fecha fin:
-anonymous.task.form.label.workloadHours = Horas de carga de trabajo:
-anonymous.task.form.label.workloadFraction = Fracción de carga de trabajo:
-anonymous.task.form.label.description = Descripción:
-anonymous.task.form.label.link = Enlace:
+anonymous.workplan.form.label.execution-period-start = Inicio del período de ejecución:
+anonymous.workplan.form.label.execution-period-end = Fin del período de ejecución:
+anonymous.workplan.form.label.workload = Carga de trabajo:
+anonymous.workplan.form.label.is-public = Es público
 
-anonymous.task.form.button.return = Volver
+anonymous.workplan.form.button.tasks = Tareas
+anonymous.workplan.form.button.return = Volver
 
-anonymous.workplan.list.label.executionPeriodStart = Inicio del período de ejecución
-anonymous.workplan.list.label.executionPeriodEnd = Fin del período de ejecución
+anonymous.workplan.list.label.execution-period-start = Inicio del período de ejecución
+anonymous.workplan.list.label.execution-period-end = Fin del período de ejecución
 anonymous.workplan.list.label.workload = Horas de carga de trabajo

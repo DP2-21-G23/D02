@@ -17,14 +17,13 @@
 
 <acme:form readonly="true">
 
-	<acme:form-textbox code="anonymous.task.form.label.title" path="title"/>
-	<acme:form-moment code="anonymous.task.form.label.startMoment" path="startMoment"/>
-	<acme:form-moment code="anonymous.task.form.label.endMoment" path="endMoment"/>
-	<acme:form-integer code="anonymous.task.form.label.workloadHours" path="workloadHours"/>
-	<acme:form-integer code="anonymous.task.form.label.workloadFraction" path="workloadFraction"/>
-	<acme:form-textarea code="anonymous.task.form.label.description" path="description"/>
-	<acme:form-url code="anonymous.task.form.label.link" path="link"/>
+	<acme:form-moment code="anonymous.workplan.form.label.execution-period-start" path="executionPeriodStart"/>
+	<acme:form-moment code="anonymous.workplan.form.label.execution-period-end" path="executionPeriodEnd"/>
+	<acme:form-textbox code="anonymous.workplan.form.label.workload" path="workload"/>
+	<acme:form-checkbox code="anonymous.workplan.form.label.is-public" path="isPublic"/>
 	
-	<acme:form-return code="anonymous.task.form.button.return"/>
+	<acme:form-return code="anonymous.workplan.form.button.tasks" action="/anonymous/task/list?workplanId=${id}"/>
+	
+	<acme:form-return code="anonymous.workplan.form.button.return"/>
 	
 </acme:form>
