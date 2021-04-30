@@ -1,5 +1,5 @@
 /*
- * AnonymousShoutShowService.java
+ * AnonymousShoutListService.java
  *
  * Copyright (C) 2012-2021 Rafael Corchuelo.
  *
@@ -10,26 +10,30 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.anonymous.task;
+package acme.features.manager.task;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.roles.Manager;
 import acme.entities.tasks.Task;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Anonymous;
-import acme.framework.services.AbstractShowService;
+import acme.framework.entities.Principal;
+import acme.framework.services.AbstractListService;
 
 @Service
-public class AnonymousTaskShowService implements AbstractShowService<Anonymous, Task> {
+public class ManagerTaskListService implements AbstractListService<Manager, Task> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnonymousTaskRepository repository;
+	protected ManagerTaskRepository repository;
 
-	// AbstractShowService<Anonymous, Shout> interface --------------
+	// AbstractListService<Anonymous, Shout> interface --------------
+
 
 	@Override
 	public boolean authorise(final Request<Task> request) {
@@ -43,23 +47,23 @@ public class AnonymousTaskShowService implements AbstractShowService<Anonymous, 
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
-		model.setAttribute("ownerName", entity.getOwner().getIdentity().getFullName());
 
-		request.unbind(entity, model, "title", "startMoment", "endMoment", "workloadHours", "workloadFraction",
-			"description", "link", "owner");
-		
+		request.unbind(entity, model, "title", "startMoment", "endMoment", "workloadHours");
 	}
 
 	@Override
-	public Task findOne(final Request<Task> request) {
+	public Collection<Task> findMany(final Request<Task> request) {
 		assert request != null;
 
-		Task result;
-		int id;
-
-		id = request.getModel().getInteger("id");
-		result = this.repository.findOneTaskById(id);
+		final Principal principal;
+		int userId;
+		
+		principal = request.getPrincipal();
+		userId = principal.getActiveRoleId();
+		
+		Collection<Task> result;
+		
+		result = this.repository.findManagerTaskById(userId);
 
 		return result;
 	}

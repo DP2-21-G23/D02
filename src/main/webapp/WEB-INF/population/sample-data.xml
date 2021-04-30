@@ -70,6 +70,62 @@
 		<property name="info" value="http://konosuba.com/" />
 	</bean>
 	
+	<!-- Managers -->
+	
+	<bean name="managerUserAccount01" class="acme.framework.entities.UserAccount">
+		<property name="username" value="manager01" />
+		<property name="password" value="manager01" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Manager01" />
+				<property name="surname" value="Acme.com01" />
+				<property name="email" value="manager01@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="managerManager01" />
+				<ref bean="managerAuthenticated01" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="managerManager01" class="acme.entities.roles.Manager">
+		<property name="userAccount" ref="managerUserAccount01" />
+	</bean>
+	
+	<bean name="managerAuthenticated01" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="managerUserAccount01" />
+	</bean>
+	
+	<bean name="managerUserAccount02" class="acme.framework.entities.UserAccount">
+		<property name="username" value="manager02" />
+		<property name="password" value="manager02" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Manager02" />
+				<property name="surname" value="Acme.com02" />
+				<property name="email" value="manager01@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="managerManager02" />
+				<ref bean="managerAuthenticated02" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="managerManager02" class="acme.entities.roles.Manager">
+		<property name="userAccount" ref="managerUserAccount02" />
+	</bean>
+	
+	<bean name="managerAuthenticated02" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="managerUserAccount02" />
+	</bean>
+	
 	<!-- Tasks -->
 	
 	<bean id="task01" class="acme.entities.tasks.Task">
@@ -81,6 +137,9 @@
 		<property name="description" value="Esta es la descripción de la tarea 1" />
 		<property name="link"><null/></property>
 		<property name="isPublic" value="False" />
+		<property name="owner">
+			<ref bean="managerManager01"/>
+		</property>
 	</bean>
 	
 	<bean id="task02" class="acme.entities.tasks.Task">
@@ -92,6 +151,9 @@
 		<property name="description" value="Esta es la descripción de la tarea 2" />
 		<property name="link" value="https://www.google.com/" />
 		<property name="isPublic" value="False" />
+		<property name="owner">
+			<ref bean="managerManager01"/>
+		</property>
 	</bean>
 	
 	<bean id="task03" class="acme.entities.tasks.Task">
@@ -103,6 +165,9 @@
 		<property name="description" value="Esta es la descripción de la tarea 3" />
 		<property name="link"><null/></property>
 		<property name="isPublic" value="True" />
+		<property name="owner">
+			<ref bean="managerManager01"/>
+		</property>
 	</bean>
 
 	<bean id="task04" class="acme.entities.tasks.Task">
@@ -114,6 +179,9 @@
 		<property name="description" value="Esta es la descripción de la tarea 4" />
 		<property name="link" value="https://www.google.com/" />
 		<property name="isPublic" value="False" />
+		<property name="owner">
+			<ref bean="managerManager01"/>
+		</property>
 	</bean>
 	
 	<bean id="task05" class="acme.entities.tasks.Task">
@@ -125,6 +193,9 @@
 		<property name="description" value="Esta es la descripción de la tarea 5" />
 		<property name="link"><null/></property>
 		<property name="isPublic" value="True" />
+		<property name="owner">
+			<ref bean="managerManager01"/>
+		</property>
 	</bean>
 	
 	<bean id="task06" class="acme.entities.tasks.Task">
@@ -136,6 +207,9 @@
 		<property name="description" value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop p" />
 		<property name="link" value="https://www.google.com/" />
 		<property name="isPublic" value="True" />
+		<property name="owner">
+			<ref bean="managerManager01"/>
+		</property>
 	</bean>
 	
 	<bean id="task07" class="acme.entities.tasks.Task">
@@ -147,6 +221,9 @@
 		<property name="description" value="Esta es la descripción de la tarea 7" />
 		<property name="link" value="https://www.google.com/" />
 		<property name="isPublic" value="True" />
+		<property name="owner">
+			<ref bean="managerManager01"/>
+		</property>
 	</bean>
 	
 	<bean id="task08" class="acme.entities.tasks.Task">
@@ -158,6 +235,9 @@
 		<property name="description" value="Esta es la descripción de la tarea 8" />
 		<property name="link"><null/></property>
 		<property name="isPublic" value="True" />
+		<property name="owner">
+			<ref bean="managerManager02"/>
+		</property>
 	</bean>
 	
 	<bean id="task09" class="acme.entities.tasks.Task">
@@ -169,6 +249,9 @@
 		<property name="description" value="Esta es la descripción de la tarea 9" />
 		<property name="link" value="https://www.google.com/" />
 		<property name="isPublic" value="False" />
+		<property name="owner">
+			<ref bean="managerManager02"/>
+		</property>
 	</bean>
 	
 	<bean id="task10" class="acme.entities.tasks.Task">
@@ -180,6 +263,9 @@
 		<property name="description" value="Esta es la descripción de la tarea 10" />
 		<property name="link"><null/></property>
 		<property name="isPublic" value="True" />
+		<property name="owner">
+			<ref bean="managerManager02"/>
+		</property>
 	</bean>
 	
 	<bean id="task11" class="acme.entities.tasks.Task">
@@ -191,6 +277,9 @@
 		<property name="description" value="Esta es la descripción de la tarea 11" />
 		<property name="link"><null/></property>
 		<property name="isPublic" value="False" />
+		<property name="owner">
+			<ref bean="managerManager02"/>
+		</property>
 	</bean>
 	
 	<bean id="task12" class="acme.entities.tasks.Task">
@@ -202,6 +291,9 @@
 		<property name="description" value="Esta es la descripción de la tarea 12" />
 		<property name="link"><null/></property>
 		<property name="isPublic" value="False" />
+		<property name="owner">
+			<ref bean="managerManager02"/>
+		</property>
 	</bean>	
 	
 	<bean id="task13" class="acme.entities.tasks.Task">
@@ -213,6 +305,9 @@
 		<property name="description" value="Esta es la descripción de la tarea 13" />
 		<property name="link" value="https://www.google.com/" />
 		<property name="isPublic" value="True" />
+		<property name="owner">
+			<ref bean="managerManager02"/>
+		</property>
 	</bean>
 	
 	<bean id="task14" class="acme.entities.tasks.Task">
@@ -224,6 +319,9 @@
 		<property name="description" value="Esta es la descripción de la tarea 14" />
 		<property name="link"><null/></property>
 		<property name="isPublic" value="False" />
+		<property name="owner">
+			<ref bean="managerManager02"/>
+		</property>
 	</bean>
 	
 	<bean id="task15" class="acme.entities.tasks.Task">
@@ -235,6 +333,9 @@
 		<property name="description" value="Esta es la descripción de la tarea 15" />
 		<property name="link"><null/></property>
 		<property name="isPublic" value="True" />
+		<property name="owner">
+			<ref bean="managerManager02"/>
+		</property>
 	</bean>
 	
 	<!-- Workplans -->

@@ -15,6 +15,7 @@ anonymous.task.form.label.workloadHours = Workload Hours:
 anonymous.task.form.label.workloadFraction = Workload Fraction:
 anonymous.task.form.label.description = Description:
 anonymous.task.form.label.link = Link:
+anonymous.task.form.label.owner = Owner:
 
 anonymous.task.form.button.return = Return
 

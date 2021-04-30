@@ -15,6 +15,7 @@ authenticated.task.form.label.workloadHours = Horas de carga de trabajo:
 authenticated.task.form.label.workloadFraction = Fracción de carga de trabajo:
 authenticated.task.form.label.description = Descripción:
 authenticated.task.form.label.link = Enlace:
+authenticated.task.form.label.owner = Propietario:
 
 authenticated.task.form.button.return = Volver
 
