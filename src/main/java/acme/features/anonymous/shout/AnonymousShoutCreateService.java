@@ -88,7 +88,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		
 		final SpamModule sm = new SpamModule(this.spamRepository);
 		
-		final SpamModuleResult spamResult = sm.checkSpam(entity, request);
+		final SpamModuleResult spamResult = sm.checkSpam(entity);
 		if(spamResult.isHasErrors()) {
 			errors.state(request, false, "info", "anonymous.shout.form.error.spam.has-errors");
 		} else if (spamResult.isSpam()){
