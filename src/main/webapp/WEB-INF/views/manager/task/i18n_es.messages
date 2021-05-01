@@ -1,0 +1,37 @@
+# i18n_es.messages
+#
+# Copyright (C) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+manager.task.form.label.title = Título:
+manager.task.form.label.startMoment = Fecha inicio:
+manager.task.form.label.endMoment = Fecha fin:
+manager.task.form.label.workloadHours = Horas de carga de trabajo:
+manager.task.form.label.workloadFraction = Fracción de carga de trabajo:
+manager.task.form.label.description = Descripción:
+manager.task.form.label.link = Enlace:
+manager.task.form.label.isPublic = Hacer pública:
+
+manager.task.form.button.return = Volver
+manager.task.form.button.create = Crear
+manager.task.form.button.update = Actualizar
+manager.task.form.button.delete = Borrar
+
+manager.task.form.error.past-startMoment = El momento de inicio no puede ser anterior a hoy
+manager.task.form.error.past-endMoment = El momento de fin no puede ser anterior a hoy
+manager.task.form.error.incorrect-interval = El momento de fin debe ser posterior al momento de inicio
+
+manager.task.form.error.spam.is-spam = Esta tarea es spam, por lo que no se puede publicar
+manager.task.form.error.spam.has-errors = Ha ocurrido un error, por favor refresque e inténtelo de nuevo
+manager.task.form.error.incorrect-date = Las fechas de inicio y fin deben estar dentro de los intervalos de los planes de trabajo a los que está asociado
+manager.task.form.error.impossible-make-private = No se puede hacer privada, la tarea está contenia en un plan de trabajo público
+
+manager.task.list.label.title = Título
+manager.task.list.label.startMoment = Fecha inicio
+manager.task.list.label.endMoment = Fecha fin
+manager.task.list.label.workloadHours = Horas de carga de trabajo

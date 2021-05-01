@@ -31,6 +31,19 @@ master.menu.sign-out = Salir
 master.menu.anonymous = Anónimo
 master.menu.anonymous.shout.create = ¡Grita!
 master.menu.anonymous.shout.list = Lista de gritos
+master.menu.anonymous.task.list = Lista de tareas
+master.menu.anonymous.workplan.list = Lista de planes de trabajo
+
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated = Autenticado
+master.menu.authenticated.task.list = Lista de tareas
+
+# master.menu.manager #######################################################
+
+master.menu.manager = Gerente
+master.menu.manager.task.list = Lista de tareas
+master.menu.manager.task.create = Crear tarea
 
 # master.menu.administrator ###################################################
 

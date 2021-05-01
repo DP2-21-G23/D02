@@ -23,6 +23,9 @@ import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Anonymous;
 import acme.framework.services.AbstractCreateService;
+import acme.utilities.SpamModule;
+import acme.utilities.SpamModule.SpamModuleResult;
+import acme.utilities.SpamRepository;
 
 @Service
 public class AnonymousShoutCreateService implements AbstractCreateService<Anonymous, Shout> {
@@ -31,6 +34,9 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
 	@Autowired
 	protected AnonymousShoutRepository repository;
+	
+	@Autowired
+	protected SpamRepository spamRepository;
 
 	// AbstractCreateService<Anonymous, Shout> ---------------------------
 
@@ -79,6 +85,15 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		
+		final SpamModule sm = new SpamModule(this.spamRepository);
+		
+		final SpamModuleResult spamResult = sm.checkSpam(entity, request);
+		if(spamResult.isHasErrors()) {
+			errors.state(request, false, "info", "anonymous.shout.form.error.spam.has-errors");
+		} else if (spamResult.isSpam()){
+			errors.state(request, false, "info", "anonymous.shout.form.error.spam.is-spam");
+		}
 	}
 	
 	@Override
