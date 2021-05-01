@@ -1,0 +1,29 @@
+administrator.dashboard.form.title 									=	Dashboard
+
+administrator.dashboard.form.tasks.private							=   Number of private tasks
+administrator.dashboard.form.tasks.public							=	Number of tasks
+
+administrator.dashboard.form.tasks.finished							= 	Number of finished tasks
+administrator.dashboard.form.tasks.unfinished						= 	Number of unfinished tasks
+
+administrator.dashboard.form.work-plans.private						=	Number of private work plans
+administrator.dashboard.form.work-plans.public						=	Number of public work plans
+
+administrator.dashboard.form.work-plans.finished					=	Number of finished work plans
+administrator.dashboard.form.work-plans.unfinished					=	Number of unfinished work plans
+
+administrator.dashboard.form.stats.min								= 	Minimum
+administrator.dashboard.form.stats.max								=	Maximum
+administrator.dashboard.form.stats.avg								=	Average
+administrator.dashboard.form.stats.stddev							=	Standard deviation
+
+administrator.dashboard.form.stats.title.task-periods				=	Tasks periods
+administrator.dashboard.form.stats.title.task-workload				=	Tasks workloads
+administrator.dashboard.form.stats.title.work-plan-periods			=	Work plans periods
+administrator.dashboard.form.stats.title.work-plan-workload			=	Work plans workloads
+
+administrator.dashboard.form.chart.title.work-plans					=	WORK PLANS
+
+administrator.dashboard.form.chart.label.work-plans.total			=	Total work plans
+administrator.dashboard.form.chart.label.work-plans.published		=	Published work plans
+administrator.dashboard.form.chart.label.work-plans.unpublished		=	Unpublished work plans
