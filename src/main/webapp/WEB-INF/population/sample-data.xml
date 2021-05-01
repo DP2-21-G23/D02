@@ -341,6 +341,7 @@
 	<!-- Workplans -->
 	
 	<bean id="workplan01" class="acme.entities.workplans.Workplan">
+		<property name="title" value="Workplan 01" />
 		<property name="isPublic" value ="False" />
 		<property name="executionPeriodStart" value="2022/01/11 05:00" />
 		<property name="executionPeriodEnd" value="2022/04/25 23:59" />
@@ -351,9 +352,13 @@
 				<ref bean="task04"/>
 			</list>
 		</property>
+		<property name="owner">
+			<ref bean="managerManager01"/>
+		</property>
 	</bean>
 	
 	<bean id="workplan02" class="acme.entities.workplans.Workplan">
+		<property name="title" value="Workplan 02" />
 		<property name="isPublic" value ="False" />
 		<property name="executionPeriodStart" value="2022/03/05 05:00" />
 		<property name="executionPeriodEnd" value="2022/07/11 23:59" />
@@ -366,9 +371,13 @@
 				<ref bean="task11"/>
 			</list>
 		</property>
+		<property name="owner">
+			<ref bean="managerManager01"/>
+		</property>
 	</bean>
 	
 	<bean id="workplan03" class="acme.entities.workplans.Workplan">
+		<property name="title" value="Workplan 03" />
 		<property name="isPublic" value ="True" />
 		<property name="executionPeriodStart" value="2022/03/05 05:00" />
 		<property name="executionPeriodEnd" value="2022/03/15 23:59" />
@@ -377,9 +386,13 @@
 				<ref bean="task08"/>
 			</list>
 		</property>
+		<property name="owner">
+			<ref bean="managerManager01"/>
+		</property>
 	</bean>
 		
 	<bean id="workplan04" class="acme.entities.workplans.Workplan">
+		<property name="title" value="Workplan 04" />
 		<property name="isPublic" value ="True" />
 		<property name="executionPeriodStart" value="2022/03/05 05:00" />
 		<property name="executionPeriodEnd" value="2022/11/15 23:59" />
@@ -388,11 +401,15 @@
 				<ref bean="task06"/>
 				<ref bean="task08"/>
 			</list>
+		</property>
+		<property name="owner">
+			<ref bean="managerManager01"/>
 		</property>
 	</bean>
 
 	
 	<bean id="workplan05" class="acme.entities.workplans.Workplan">
+		<property name="title" value="Workplan 05" />
 		<property name="isPublic" value ="True" />
 		<property name="executionPeriodStart" value="2022/05/03 05:00" />
 		<property name="executionPeriodEnd" value="2022/11/15 23:59" />
@@ -404,10 +421,14 @@
 				<ref bean="task10"/>
 			</list>
 		</property>
+		<property name="owner">
+			<ref bean="managerManager01"/>
+		</property>
 	</bean>
 	
 		
 	<bean id="workplan06" class="acme.entities.workplans.Workplan">
+		<property name="title" value="Workplan 06" />
 		<property name="isPublic" value ="True" />
 		<property name="executionPeriodStart" value="2022/05/03 05:00" />
 		<property name="executionPeriodEnd" value="2022/11/15 23:59" />
@@ -419,10 +440,14 @@
 				<ref bean="task10"/>
 			</list>
 		</property>
+		<property name="owner">
+			<ref bean="managerManager02"/>
+		</property>
 	</bean>
 	
 		
 	<bean id="workplan07" class="acme.entities.workplans.Workplan">
+		<property name="title" value="Workplan 07" />
 		<property name="isPublic" value ="True" />
 		<property name="executionPeriodStart" value="2022/03/05 05:00" />
 		<property name="executionPeriodEnd" value="2022/11/15 23:59" />
@@ -436,10 +461,14 @@
 				<ref bean="task10"/>
 			</list>
 		</property>
+		<property name="owner">
+			<ref bean="managerManager02"/>
+		</property>
 	</bean>
 	
 		
 	<bean id="workplan08" class="acme.entities.workplans.Workplan">
+		<property name="title" value="Workplan 08" />
 		<property name="isPublic" value ="True" />
 		<property name="executionPeriodStart" value="2022/11/15 05:00" />
 		<property name="executionPeriodEnd" value="2022/11/15 23:59" />
@@ -447,6 +476,9 @@
 			<list>
 				<ref bean="task06"/>
 			</list>
+		</property>
+		<property name="owner">
+			<ref bean="managerManager02"/>
 		</property>
 	</bean>
 	

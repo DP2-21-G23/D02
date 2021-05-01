@@ -63,7 +63,12 @@ public class ManagerTaskListService implements AbstractListService<Manager, Task
 		
 		Collection<Task> result;
 		
-		result = this.repository.findManagerTaskById(userId);
+		if(request.getModel().hasAttribute("workplanId")) {
+			result = this.repository.findManyByWorkplanId(request.getModel().getInteger("workplanId"));
+		}else {
+			result = this.repository.findManagerTaskById(userId);
+		}
+		
 
 		return result;
 	}

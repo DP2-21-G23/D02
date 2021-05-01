@@ -19,6 +19,7 @@ import acme.entities.roles.Manager;
 import acme.entities.tasks.Task;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
@@ -34,8 +35,20 @@ public class ManagerTaskShowService implements AbstractShowService<Manager, Task
 	@Override
 	public boolean authorise(final Request<Task> request) {
 		assert request != null;
+		
+		boolean res;
+		int taskId;
+		final Task task;
+		final Manager manager;
+		Principal principal;
 
-		return true;
+		taskId = request.getModel().getInteger("id");
+		task = this.repository.findOneTaskById(taskId);
+		manager = task.getOwner();
+		principal = request.getPrincipal();
+		res = manager.getUserAccount().getId() == principal.getAccountId();
+		
+		return res;
 	}
 
 	@Override
