@@ -1,0 +1,29 @@
+administrator.dashboard.form.title 									=	Panel de indicadores
+
+administrator.dashboard.form.tasks.private							=   Número de tareas privadas
+administrator.dashboard.form.tasks.public							=	Número de tareas públicas
+
+administrator.dashboard.form.tasks.finished							= 	Número de tareas finalizadas
+administrator.dashboard.form.tasks.unfinished						= 	Número de tareas sin finalizar
+
+administrator.dashboard.form.work-plans.private						=	Número de planes de trabajo privados
+administrator.dashboard.form.work-plans.public						=	Número de planes de trabajo públicos
+
+administrator.dashboard.form.work-plans.finished					=	Número de planes de trabajo finalizados
+administrator.dashboard.form.work-plans.unfinished					=	Número de planes de trabajo sin finalizar
+
+administrator.dashboard.form.stats.min								= 	Mínimo
+administrator.dashboard.form.stats.max								=	Máximo
+administrator.dashboard.form.stats.avg								=	Media
+administrator.dashboard.form.stats.stddev							=	Desviación estándar
+
+administrator.dashboard.form.stats.title.task-periods				=	Periodos de ejecución de las tareas
+administrator.dashboard.form.stats.title.task-workload				=	Carga de trabajo de las tareas
+administrator.dashboard.form.stats.title.work-plan-periods			=	Periodos de ejecución de los planes de trabajo
+administrator.dashboard.form.stats.title.work-plan-workload			=	Carga de trabajo de los planes de trabajo
+
+administrator.dashboard.form.chart.title.work-plans					=	PLANES DE TRABAJO
+
+administrator.dashboard.form.chart.label.work-plans.total			=	Total de planes de trabajo
+administrator.dashboard.form.chart.label.work-plans.published		=	Planes de trabajo publicados
+administrator.dashboard.form.chart.label.work-plans.unpublished		=	Planes de trabajo sin publicar
