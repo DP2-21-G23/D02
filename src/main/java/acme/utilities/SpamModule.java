@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.framework.components.Request;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -42,13 +41,13 @@ public class SpamModule {
 	
 	/**
      * Return a SpamModuleResult object with information on whether the object to be validated is spam
-     * and has errors, or not. If there are errors or the object is not an entity, it marks it as not
-     * being spam and logs the corresponding information.
+     * and has errors, or not. It looks for spam in String attributes any given object, regardless of 
+     * its type. If there are errors or the object is not an entity, it marks it as not being spam and 
+     * logs the corresponding information.
      * 
      * @param obj Object to check
-     * @param request Request of a generic entity
      */
-	public <E> SpamModuleResult checkSpam(final Object obj, final Request<E> request) {
+	public SpamModuleResult checkSpam(final Object obj) {
 		final SpamModuleResult result = new SpamModuleResult();
 		Map<String, String> spamWordsMap;
 		Set<String> spamWordsSet = new HashSet<String>();
