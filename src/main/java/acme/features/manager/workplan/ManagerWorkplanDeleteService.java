@@ -19,6 +19,7 @@ public class ManagerWorkplanDeleteService implements AbstractDeleteService<Manag
 	
 	@Override
 	public boolean authorise(final Request<Workplan> request) {
+		assert request != null;
 		
 		boolean res;
 		int workplanId;

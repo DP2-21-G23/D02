@@ -8,6 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+authenticated.task.form.label.taskId = ID de la tarea:
 authenticated.task.form.label.title = Título:
 authenticated.task.form.label.startMoment = Fecha inicio:
 authenticated.task.form.label.endMoment = Fecha fin:

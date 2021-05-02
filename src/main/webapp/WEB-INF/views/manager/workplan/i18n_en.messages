@@ -13,6 +13,8 @@ manager.workplan.form.label.execution-period-start = Execution period start:
 manager.workplan.form.label.execution-period-end = Execution period end:
 manager.workplan.form.label.workload = Workload:
 manager.workplan.form.label.is-public = Is public
+manager.workplan.form.label.nueva-task = Add a task to the workplan (Enter a task ID):
+manager.workplan.form.label.borrar-task = Remove a task from the workplan (Enter a task ID):
 
 manager.workplan.form.button.tasks = Tasks
 manager.workplan.form.button.create = Create
@@ -24,10 +26,15 @@ manager.workplan.form.error.past-executionPeriodStart = The start cannot be earl
 manager.workplan.form.error.past-executionPeriodEnd = The end cannot be earlier than today
 manager.workplan.form.error.incorrect-interval = The end moment must be after the start moment
 
-manager.workplan.form.error.spam.is-spam = This task is spam, and therefore will not be allowed to be published
+manager.workplan.form.error.spam.is-spam = This workplan is spam, and therefore will not be allowed to be published
 manager.workplan.form.error.spam.has-errors = An error has occurred, please refresh and try again
 manager.workplan.form.error.incorrect-date = Start and end dates must be within the intervals of the work plans to which it is associated
-manager.workplan.form.error.impossible-make-private = It cannot be made private, the task is contained in a public work plan
+manager.workplan.form.error.publish = It cannot be published, this workplan contains private tasks
+manager.workplan.form.error.nueva-task-fechas = The task to be added is either before the plan start date or after the end date
+manager.workplan.form.error.nueva-task-propia = This task does not belong to you as manager
+manager.workplan.form.error.nueva-task-contenida = This task is already included in this work plan
+manager.workplan.form.error.nueva-task-no-existe = No task exists for the entered ID
+manager.workplan.form.error.borrar-task-no-contenida = This task is not included in this work plan
 
 manager.workplan.list.label.title = Title
 manager.workplan.list.label.execution-period-start = Execution period start

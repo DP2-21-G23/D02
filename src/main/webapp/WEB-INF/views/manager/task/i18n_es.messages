@@ -8,6 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+manager.task.form.label.taskId = ID de la tarea:
 manager.task.form.label.title = Título:
 manager.task.form.label.startMoment = Fecha inicio:
 manager.task.form.label.endMoment = Fecha fin:
@@ -30,6 +31,7 @@ manager.task.form.error.spam.is-spam = Esta tarea es spam, por lo que no se pued
 manager.task.form.error.spam.has-errors = Ha ocurrido un error, por favor refresque e inténtelo de nuevo
 manager.task.form.error.incorrect-date = Las fechas de inicio y fin deben estar dentro de los intervalos de los planes de trabajo a los que está asociado
 manager.task.form.error.impossible-make-private = No se puede hacer privada, la tarea está contenia en un plan de trabajo público
+manager.task.form.error.spam.unique-task-id = Este ID ya existe, por favor elije otro
 
 manager.task.list.label.title = Título
 manager.task.list.label.startMoment = Fecha inicio

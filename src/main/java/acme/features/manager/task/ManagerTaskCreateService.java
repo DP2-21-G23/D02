@@ -67,7 +67,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "startMoment", "endMoment", "workloadHours", "workloadFraction",
+		request.unbind(entity, model, "taskId", "title", "startMoment", "endMoment", "workloadHours", "workloadFraction",
 			"description", "link", "isPublic");
 	}
 
@@ -119,6 +119,10 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 			errors.state(request, false, "isPublic", "manager.task.form.error.spam.has-errors");
 		} else if (spamResult.isSpam()){
 			errors.state(request, false, "isPublic", "manager.task.form.error.spam.is-spam");
+		}
+		
+		if (!errors.hasErrors("taskId")) {
+			errors.state(request, !this.repository.checkUniqueTicker(entity.getTaskId()), "taskId", "manager.task.form.error.spam.unique-task-id");
 		}
 		
 		

@@ -13,6 +13,8 @@ manager.workplan.form.label.execution-period-start = Inicio del período de ejec
 manager.workplan.form.label.execution-period-end = Fin del período de ejecución:
 manager.workplan.form.label.workload = Carga de trabajo:
 manager.workplan.form.label.is-public = Es público
+manager.workplan.form.label.nueva-task = Añadir una tarea al plan de trabajo (Introducir una ID de tarea):
+manager.workplan.form.label.borrar-task = Eliminar una tarea del plan de trabajo (Introducir una ID de tarea):
 
 manager.workplan.form.button.tasks = Tareas
 manager.workplan.form.button.create = Crear
@@ -24,12 +26,19 @@ manager.workplan.form.error.past-executionPeriodStart = El inicio no puede ser a
 manager.workplan.form.error.past-executionPeriodEnd = El fin no puede ser anterior a hoy
 manager.workplan.form.error.incorrect-interval = El momento de fin debe ser posterior al momento de inicio
 
-manager.workplan.form.error.spam.is-spam = Esta tarea es spam, por lo que no se puede publicar
+manager.workplan.form.error.spam.is-spam = Este plan de trabajo es spam, por lo que no se puede publicar
 manager.workplan.form.error.spam.has-errors = Ha ocurrido un error, por favor refresque e inténtelo de nuevo
 manager.workplan.form.error.incorrect-date = Las fechas de inicio y fin deben estar dentro de los intervalos de los planes de trabajo a los que está asociado
-manager.workplan.form.error.impossible-make-private = No se puede hacer privada, la tarea está contenia en un plan de trabajo público
+manager.workplan.form.error.publish = No se puede publicar, este plan de trabajo contiene tareas privadas
+manager.workplan.form.error.nueva-task-fechas = La tarea a añadir es anterior a la fecha de inicio del plan o posterior a la fecha de fin
+manager.workplan.form.error.nueva-task-propia = Esta tarea no te pertenece como gerente
+manager.workplan.form.error.nueva-task-contenida = Esta tarea ya está contenida en este plan de trabajo
+manager.workplan.form.error.nueva-task-no-existe = No existe ninguna tarea para el ID introducido
+manager.workplan.form.error.borrar-task-no-contenida = Esta tarea no está contenida en este plan de trabajo
 
 manager.workplan.list.label.title = Título
 manager.workplan.list.label.execution-period-start = Inicio del período de ejecución
 manager.workplan.list.label.execution-period-end = Fin del período de ejecución
 manager.workplan.list.label.workload = Horas de carga de trabajo
+
+manager.workplan.form.label.task.placeholder = Introducir la ID de la tarea

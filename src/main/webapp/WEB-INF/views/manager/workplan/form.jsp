@@ -25,7 +25,10 @@
 		<acme:form-checkbox code="manager.workplan.form.label.is-public" path="isPublic"/>
 		<acme:form-return code="manager.workplan.form.button.tasks" action="/manager/task/list?workplanId=${id}"/>
 	</jstl:if>
-	
+	<jstl:if test="${command == 'show' or command == 'update'}">
+		<acme:form-textbox code="manager.workplan.form.label.nueva-task" path="nuevaTask"/>
+		<acme:form-textbox code="manager.workplan.form.label.borrar-task" path="borrarTask"/>
+	</jstl:if>
 	<acme:form-submit test="${command == 'create'}" 
 		code="manager.workplan.form.button.create" 
 		action="/manager/workplan/create"/>

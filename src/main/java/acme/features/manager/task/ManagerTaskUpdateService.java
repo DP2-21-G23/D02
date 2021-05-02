@@ -70,7 +70,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors);
+		request.bind(entity, errors, "taskId");
 	}
 
 	@Override
@@ -127,7 +127,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 			errors.state(request, false, "isPublic", "manager.task.form.error.spam.is-spam");
 		}
 		
-		if(!errors.hasErrors("endMoment")) {
+		if(!errors.hasErrors("endMoment") && !errors.hasErrors("startMoment")) {
 			final Boolean incorrectDate = this.repository.isNotPossibleModificateMoment(entity.getId(), entity.getStartMoment(), entity.getEndMoment());
 			errors.state(request, !incorrectDate, "endMoment", "manager.task.form.error.incorrect-date");
 		}

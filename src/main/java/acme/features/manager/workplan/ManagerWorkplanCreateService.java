@@ -15,8 +15,6 @@ import acme.framework.components.Response;
 import acme.framework.entities.Principal;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractCreateService;
-import acme.utilities.SpamModule;
-import acme.utilities.SpamModule.SpamModuleResult;
 import acme.utilities.SpamRepository;
 
 @Service
@@ -98,15 +96,7 @@ public class ManagerWorkplanCreateService implements AbstractCreateService<Manag
 			final Boolean isAfter = entity.getExecutionPeriodEnd().after(entity.getExecutionPeriodStart());
 			errors.state(request, isAfter, "executionPeriodEnd", "manager.workplan.form.error.incorrect-interval");
 		}
-		
-		final SpamModule sm = new SpamModule(this.spamRepository);
-		
-		final SpamModuleResult spamResult = sm.checkSpam(entity);
-		if(spamResult.isHasErrors()) {
-			errors.state(request, false, "isPublic", "manager.workplan.form.error.spam.has-errors");
-		} else if (spamResult.isSpam()){
-			errors.state(request, false, "isPublic", "manager.workplan.form.error.spam.is-spam");
-		}
+
 	}
 
 	@Override

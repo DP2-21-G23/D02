@@ -46,7 +46,7 @@ public class AnonymousTaskShowService implements AbstractShowService<Anonymous, 
 		
 		model.setAttribute("ownerName", entity.getOwner().getIdentity().getFullName());
 
-		request.unbind(entity, model, "title", "startMoment", "endMoment", "workloadHours", "workloadFraction",
+		request.unbind(entity, model, "taskId", "title", "startMoment", "endMoment", "workloadHours", "workloadFraction",
 			"description", "link", "owner");
 		
 	}
