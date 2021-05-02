@@ -1,5 +1,9 @@
 package acme.features.manager.workplan;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +46,27 @@ public class ManagerWorkplanShowService implements AbstractShowService<Manager, 
 		assert model != null;
 
 		request.unbind(entity, model, "title", "executionPeriodStart", "executionPeriodEnd", "workload", "isPublic");
+		
+		final SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd HH:mm aa");
+		final Date earliestTask = this.repository.earliestTaskDateFromWorkplan(entity.getId());
+		final Calendar aux = Calendar.getInstance();
+		aux.setTime(earliestTask);
+	    aux.set(Calendar.HOUR, 8);
+	    aux.set(Calendar.MINUTE, 0);
+		aux.add(Calendar.DAY_OF_MONTH, -1);
+	    final Date earliestDate = aux.getTime();
+	    final StringBuilder suggestionBuilder = new StringBuilder();
+	    suggestionBuilder.append("<"+formato.format(earliestDate)+", ");
+	    
+	    final Date latestTask = this.repository.latestTaskDateFromWorkplan(entity.getId());
+	    aux.setTime(latestTask);
+	    aux.set(Calendar.HOUR, 17);
+	    aux.set(Calendar.MINUTE, 0);
+		aux.add(Calendar.DAY_OF_MONTH, 0);
+	    final Date latestDate = aux.getTime();
+	    suggestionBuilder.append(formato.format(latestDate)+">");
+	    
+		model.setAttribute("suggestion", suggestionBuilder.toString());
 		
 	}
 

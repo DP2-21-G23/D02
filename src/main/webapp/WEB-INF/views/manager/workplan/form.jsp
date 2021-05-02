@@ -18,6 +18,9 @@
 <acme:form>
 
 	<acme:form-textbox code="manager.workplan.form.label.title" path="title"/>
+	<jstl:if test="${command != 'create'}">
+		<acme:form-textbox code="manager.workplan.form.label.suggestion" path="suggestion" readonly="true"/>
+	</jstl:if>
 	<acme:form-moment code="manager.workplan.form.label.execution-period-start" path="executionPeriodStart"/>
 	<acme:form-moment code="manager.workplan.form.label.execution-period-end" path="executionPeriodEnd"/>
 	<jstl:if test="${command != 'create'}">
