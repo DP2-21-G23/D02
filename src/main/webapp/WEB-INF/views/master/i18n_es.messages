@@ -52,6 +52,7 @@ master.menu.manager.workplan.create = Crear plan de trabajo
 
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
+master.menu.administrator.configuration = Configuración
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
