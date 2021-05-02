@@ -9,6 +9,7 @@
 # they accept any liabilities with respect to them.
 
 manager.workplan.form.label.title = Title:
+manager.workplan.form.label.suggestion = Suggested execution period:
 manager.workplan.form.label.execution-period-start = Execution period start:
 manager.workplan.form.label.execution-period-end = Execution period end:
 manager.workplan.form.label.workload = Workload:

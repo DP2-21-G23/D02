@@ -32,5 +32,11 @@ public interface ManagerWorkplanRepository extends AbstractRepository {
 
 	@Query("select t from Task t where t.taskId = ?1")
 	Task searchTask(String taskId);
+	
+	@Query("select min(t.startMoment) from Workplan wp join wp.tasks as t where wp.id = ?1")
+	Date earliestTaskDateFromWorkplan(int workplanId);
+
+	@Query("select max(t.endMoment) from Workplan wp join wp.tasks as t where wp.id = ?1")
+	Date latestTaskDateFromWorkplan(int id);
 
 }
