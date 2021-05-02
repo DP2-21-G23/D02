@@ -37,7 +37,8 @@ master.menu.anonymous.workplan.list = Workplan list
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Authenticated
-master.menu.authenticated.task.list = Tasks list
+master.menu.authenticated.task.list-finish-task = Finished tasks list
+master.menu.authenticated.task.list-non-finish-task = Non finished tasks list
 master.menu.authenticated.workplan.list = Workplans list
 
 # master.menu.manager #######################################################

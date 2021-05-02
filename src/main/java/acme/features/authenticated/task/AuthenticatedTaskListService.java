@@ -31,7 +31,7 @@ public class AuthenticatedTaskListService implements AbstractListService<Authent
 	@Autowired
 	protected AuthenticatedTaskRepository repository;
 
-	// AbstractListService<Anonymous, Shout> interface --------------
+	// AbstractListService<Authenticated, Task> interface --------------
 
 
 	@Override
