@@ -1,5 +1,5 @@
 /*
- * AnonymousShoutShowService.java
+ * AuthenticatedShoutListService.java
  *
  * Copyright (C) 2012-2021 Rafael Corchuelo.
  *
@@ -12,6 +12,8 @@
 
 package acme.features.authenticated.task;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,17 +21,18 @@ import acme.entities.tasks.Task;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
-import acme.framework.services.AbstractShowService;
+import acme.framework.services.AbstractListService;
 
 @Service
-public class AuthenticatedTaskShowService implements AbstractShowService<Authenticated, Task> {
+public class AuthenticatedTaskListNonFinishedService implements AbstractListService<Authenticated, Task> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected AuthenticatedTaskRepository repository;
 
-	// AbstractShowService<Authenticated, Task> interface --------------
+	// AbstractListService<Authenticated, Task> interface --------------
+
 
 	@Override
 	public boolean authorise(final Request<Task> request) {
@@ -43,22 +46,21 @@ public class AuthenticatedTaskShowService implements AbstractShowService<Authent
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
-		model.setAttribute("ownerName", entity.getOwner().getIdentity().getFullName());
 
-		request.unbind(entity, model, "taskId", "title", "startMoment", "endMoment", "workloadHours", "workloadFraction",
-			"description", "link", "owner");
+		request.unbind(entity, model, "title", "startMoment", "endMoment", "workloadHours");
 	}
 
 	@Override
-	public Task findOne(final Request<Task> request) {
+	public Collection<Task> findMany(final Request<Task> request) {
 		assert request != null;
 
-		Task result;
-		int id;
-
-		id = request.getModel().getInteger("id");
-		result = this.repository.findOneTaskById(id);
+		Collection<Task> result;
+		if(request.getModel().hasAttribute("workplanId")) {
+			result = this.repository.findManyByWorkplanId(request.getModel().getInteger("workplanId"));
+		}else {
+			result = this.repository.findNonFinishedTask();
+		}
+		
 
 		return result;
 	}

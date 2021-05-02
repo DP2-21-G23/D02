@@ -12,7 +12,12 @@
 
 package acme.features.manager.task;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,7 +47,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 	@Autowired
 	protected SpamRepository spamRepository;
 
-	// AbstractCreateService<Authenticated, Task> interface ---------------
+	// AbstractCreateService<Manager, Task> interface ---------------
 
 
 	@Override
@@ -107,9 +112,25 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 			final Boolean isAfter = entity.getEndMoment().after(now);
 			errors.state(request, isAfter, "endMoment", "manager.task.form.error.past-endMoment");
 		}
-		if(!errors.hasErrors("endMoment") && entity.getStartMoment()!=null && entity.getEndMoment() != null) {
+		if(!errors.hasErrors("endMoment") && !errors.hasErrors("startMoment")) {
 			final Boolean isAfter = entity.getEndMoment().after(entity.getStartMoment());
 			errors.state(request, isAfter, "endMoment", "manager.task.form.error.incorrect-interval");
+			
+            final Calendar moments = new GregorianCalendar();
+            moments.setTime(entity.getStartMoment());
+            final LocalDateTime start = LocalDateTime.ofInstant(moments.toInstant(), ZoneId.systemDefault());
+            moments.setTime(entity.getEndMoment());
+            final LocalDateTime end = LocalDateTime.ofInstant(moments.toInstant(), ZoneId.systemDefault());
+            
+            final Long datediff = ChronoUnit.MINUTES.between(start, end);
+            Long workload = (long) entity.getWorkloadHours()*60;
+            if(entity.getWorkloadFraction()!=null) {
+                workload+=entity.getWorkloadFraction();
+            }
+            
+            if(datediff.compareTo(workload)<0) {
+                errors.state(request, false, "workloadHours", "manager.task.form.error.incorrect-workload");
+            }
 		}
 		
 		final SpamModule sm = new SpamModule(this.spamRepository);
