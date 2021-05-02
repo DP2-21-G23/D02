@@ -1,0 +1,23 @@
+# i18n_es.messages
+#
+# Copyright (C) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+authenticated.workplan.form.label.title: Título;
+authenticated.workplan.form.label.execution-period-start = Inicio del período de ejecución:
+authenticated.workplan.form.label.execution-period-end = Fin del período de ejecución:
+authenticated.workplan.form.label.workload = Carga de trabajo:
+authenticated.workplan.form.label.is-public = Es público
+
+authenticated.workplan.form.button.tasks = Tareas
+authenticated.workplan.form.button.return = Volver
+
+authenticated.workplan.list.label.title = Título
+authenticated.workplan.list.label.execution-period-start = Inicio del período de ejecución
+authenticated.workplan.list.label.execution-period-end = Fin del período de ejecución
+authenticated.workplan.list.label.workload = Horas de carga de trabajo
