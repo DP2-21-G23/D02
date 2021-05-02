@@ -38,6 +38,7 @@ master.menu.anonymous.workplan.list = Lista de planes de trabajo
 
 master.menu.authenticated = Autenticado
 master.menu.authenticated.task.list = Lista de tareas
+master.menu.authenticated.workplan.list = Lista de planes de trabajo
 
 # master.menu.manager #######################################################
 
