@@ -39,16 +39,16 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		final List<Object[]> taskPeriodsStats = new ArrayList<Object[]>(this.repository.taskPeriodsStats());
 		final int minimumTaskPeriods = (int) taskPeriodsStats.get(0)[0];
-		final String minTaskPeriodsDays = minimumTaskPeriods + " days";
+		final String minTaskPeriodsDays = minimumTaskPeriods + "";
 		model.setAttribute("minTaskPeriodsDays", minTaskPeriodsDays);
 		final int maximumTaskPeriods = (int) taskPeriodsStats.get(0)[1];
-		final String maxTaskPeriodsDays = maximumTaskPeriods + " days";
+		final String maxTaskPeriodsDays = maximumTaskPeriods + "";
 		model.setAttribute("maxTaskPeriodsDays", maxTaskPeriodsDays);
 		final double avgTaskPeriods = (double) taskPeriodsStats.get(0)[2];
-		final String avgTaskPeriodsDays = String.format("%.0f days", avgTaskPeriods);
+		final String avgTaskPeriodsDays = String.format("%.0f", avgTaskPeriods);
 		model.setAttribute("avgTaskPeriodsDays", avgTaskPeriodsDays);
 		final double stddevTaskPeriods = (double) taskPeriodsStats.get(0)[3];
-		final String stddevTaskPeriodsDays = String.format("%.0f days", stddevTaskPeriods);
+		final String stddevTaskPeriodsDays = String.format("%.0f", stddevTaskPeriods);
 		model.setAttribute("stddevTaskPeriodsDays", stddevTaskPeriodsDays);
 
 		final List<Object[]> taskWorkloadsStats = new ArrayList<Object[]>(this.repository.taskWorkloadsStats());
@@ -72,16 +72,16 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		
 		final List<Object[]> workPlanPeriodsStats = new ArrayList<Object[]>(this.repository.workPlanPeriodsStats());
 		final int minimumWorkPlanPeriods = (int) workPlanPeriodsStats.get(0)[0];
-		final String minWorkPlanPeriodsDays = minimumWorkPlanPeriods + " days";
+		final String minWorkPlanPeriodsDays = minimumWorkPlanPeriods + "";
 		model.setAttribute("minWorkPlanPeriodsDays", minWorkPlanPeriodsDays);
 		final int maximumWorkPlanPeriods = (int) workPlanPeriodsStats.get(0)[1];
-		final String maxWorkPlanPeriodsDays = maximumWorkPlanPeriods + " days";
+		final String maxWorkPlanPeriodsDays = maximumWorkPlanPeriods + "";
 		model.setAttribute("maxWorkPlanPeriodsDays", maxWorkPlanPeriodsDays);
 		final double avgWorkPlanPeriods = (double) workPlanPeriodsStats.get(0)[2];
-		final String avgWorkPlanPeriodsDays = String.format("%.0f days", avgWorkPlanPeriods);
+		final String avgWorkPlanPeriodsDays = String.format("%.0f", avgWorkPlanPeriods);
 		model.setAttribute("avgWorkPlanPeriodsDays", avgWorkPlanPeriodsDays);
 		final double stddevWorkPlanPeriods = (double) workPlanPeriodsStats.get(0)[3];
-		final String stddevWorkPlanPeriodsDays = String.format("%.0f days", stddevWorkPlanPeriods);
+		final String stddevWorkPlanPeriodsDays = String.format("%.0f", stddevWorkPlanPeriods);
 		model.setAttribute("stddevWorkPlanPeriodsDays", stddevWorkPlanPeriodsDays);
 
 		final List<Object[]> workPlanWorkloadsStats = new ArrayList<Object[]>(this.repository.workPlanWorkloadsStats());

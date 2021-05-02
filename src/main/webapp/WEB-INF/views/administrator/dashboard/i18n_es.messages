@@ -17,6 +17,11 @@ administrator.dashboard.form.stats.max								=	Máximo
 administrator.dashboard.form.stats.avg								=	Media
 administrator.dashboard.form.stats.stddev							=	Desviación estándar
 
+administrator.dashboard.form.stats.min.period						= 	Minimo (days)
+administrator.dashboard.form.stats.max.period						=	Máximo (days)
+administrator.dashboard.form.stats.avg.period						=	Media (days)
+administrator.dashboard.form.stats.stddev.period					=	Desviación estándar (days)
+
 administrator.dashboard.form.stats.title.task-periods				=	Periodos de ejecución de las tareas
 administrator.dashboard.form.stats.title.task-workload				=	Carga de trabajo de las tareas
 administrator.dashboard.form.stats.title.work-plan-periods			=	Periodos de ejecución de los planes de trabajo

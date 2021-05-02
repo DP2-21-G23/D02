@@ -32,10 +32,10 @@ text-align: center
 	<h4>
 		<acme:message code="administrator.dashboard.form.stats.title.task-periods"/>
 	</h4>
-	<acme:form-textbox code="administrator.dashboard.form.stats.min" path="minTaskPeriodsDays"/>
-	<acme:form-textbox code="administrator.dashboard.form.stats.max" path="maxTaskPeriodsDays"/>
-	<acme:form-textbox code="administrator.dashboard.form.stats.avg" path="avgTaskPeriodsDays"/>
-	<acme:form-textbox code="administrator.dashboard.form.stats.stddev" path="stddevTaskPeriodsDays"/>
+	<acme:form-textbox code="administrator.dashboard.form.stats.min.period" path="minTaskPeriodsDays"/>
+	<acme:form-textbox code="administrator.dashboard.form.stats.max.period" path="maxTaskPeriodsDays"/>
+	<acme:form-textbox code="administrator.dashboard.form.stats.avg.period" path="avgTaskPeriodsDays"/>
+	<acme:form-textbox code="administrator.dashboard.form.stats.stddev.period" path="stddevTaskPeriodsDays"/>
 
 	<br />
 	<br />
@@ -65,10 +65,10 @@ text-align: center
 	<h4>	
 		<acme:message code="administrator.dashboard.form.stats.title.work-plan-periods"/>
 	</h4>
-	<acme:form-textbox code="administrator.dashboard.form.stats.min" path="minWorkPlanPeriodsDays"/>
-	<acme:form-textbox code="administrator.dashboard.form.stats.max" path="maxWorkPlanPeriodsDays"/>
-	<acme:form-textbox code="administrator.dashboard.form.stats.avg" path="avgWorkPlanPeriodsDays"/>
-	<acme:form-textbox code="administrator.dashboard.form.stats.stddev" path="stddevWorkPlanPeriodsDays"/>
+	<acme:form-textbox code="administrator.dashboard.form.stats.min.period" path="minWorkPlanPeriodsDays"/>
+	<acme:form-textbox code="administrator.dashboard.form.stats.max.period" path="maxWorkPlanPeriodsDays"/>
+	<acme:form-textbox code="administrator.dashboard.form.stats.avg.period" path="avgWorkPlanPeriodsDays"/>
+	<acme:form-textbox code="administrator.dashboard.form.stats.stddev.period" path="stddevWorkPlanPeriodsDays"/>
 
 	<br />
 	<br />
@@ -91,7 +91,7 @@ text-align: center
 
 <h2></h2>
 <div class="container">
-	<h2><b><acme:message code="administrator.dashboard.form.chart.title.work-plans"/></b></h2>
+	<h2><strong><acme:message code="administrator.dashboard.form.chart.title.work-plans"/></strong></h2>
 	<br /><br />
 	<canvas id="chart-area"></canvas>
 </div>
