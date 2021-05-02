@@ -24,6 +24,7 @@ import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.components.Response;
+import acme.framework.entities.Principal;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractUpdateService;
 import acme.utilities.SpamModule;
@@ -47,8 +48,20 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 	@Override
 	public boolean authorise(final Request<Task> request) {
 		assert request != null;
+		
+		boolean res;
+		int taskId;
+		final Task task;
+		final Manager manager;
+		Principal principal;
 
-		return true;
+		taskId = request.getModel().getInteger("id");
+		task = this.repository.findOneTaskById(taskId);
+		manager = task.getOwner();
+		principal = request.getPrincipal();
+		res = manager.getUserAccount().getId() == principal.getAccountId();
+
+		return res;
 	}
 
 	@Override
@@ -57,7 +70,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors);
+		request.bind(entity, errors, "taskId");
 	}
 
 	@Override
@@ -114,7 +127,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 			errors.state(request, false, "isPublic", "manager.task.form.error.spam.is-spam");
 		}
 		
-		if(!errors.hasErrors("endMoment")) {
+		if(!errors.hasErrors("endMoment") && !errors.hasErrors("startMoment")) {
 			final Boolean incorrectDate = this.repository.isNotPossibleModificateMoment(entity.getId(), entity.getStartMoment(), entity.getEndMoment());
 			errors.state(request, !incorrectDate, "endMoment", "manager.task.form.error.incorrect-date");
 		}

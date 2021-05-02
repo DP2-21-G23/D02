@@ -1,25 +1,38 @@
-package acme.features.anonymous.workplan;
+package acme.features.manager.workplan;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.roles.Manager;
 import acme.entities.workplans.Workplan;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Anonymous;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class AnonymousWorkplanShowService implements AbstractShowService<Anonymous, Workplan> {
+public class ManagerWorkplanShowService implements AbstractShowService<Manager, Workplan> {
 
 	@Autowired
-	protected AnonymousWorkplanRepository repository;
+	protected ManagerWorkplanRepository repository;
 	
 	@Override
 	public boolean authorise(final Request<Workplan> request) {
 		assert request != null;
+		
+		boolean res;
+		int workplanId;
+		final Workplan workplan;
+		final Manager manager;
+		Principal principal;
 
-		return true;
+		workplanId = request.getModel().getInteger("id");
+		workplan = this.repository.findOneWorkplanById(workplanId);
+		manager = workplan.getOwner();
+		principal = request.getPrincipal();
+		res = manager.getUserAccount().getId() == principal.getAccountId();
+		
+		return res;
 	}
 
 	@Override

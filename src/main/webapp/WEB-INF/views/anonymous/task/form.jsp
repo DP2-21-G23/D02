@@ -17,6 +17,7 @@
 
 <acme:form readonly="true">
 
+	<acme:form-textbox code="anonymous.task.form.label.taskId" path="taskId"/>
 	<acme:form-textbox code="anonymous.task.form.label.title" path="title"/>
 	<acme:form-moment code="anonymous.task.form.label.startMoment" path="startMoment"/>
 	<acme:form-moment code="anonymous.task.form.label.endMoment" path="endMoment"/>

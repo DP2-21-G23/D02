@@ -16,6 +16,14 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
+	<jstl:choose>
+		<jstl:when test="${command == 'create'}">
+			<acme:form-textbox code="manager.task.form.label.taskId" path="taskId"/>
+		</jstl:when>
+		<jstl:otherwise>
+			<acme:form-textbox code="manager.task.form.label.taskId" path="taskId" readonly="true"/>
+		</jstl:otherwise>
+	</jstl:choose>
 	<acme:form-textbox code="manager.task.form.label.title" path="title"/>
 	<acme:form-moment code="manager.task.form.label.startMoment" path="startMoment"/>
 	<acme:form-moment code="manager.task.form.label.endMoment" path="endMoment"/>

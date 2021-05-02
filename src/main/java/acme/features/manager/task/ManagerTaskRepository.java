@@ -45,4 +45,10 @@ public interface ManagerTaskRepository extends AbstractRepository {
 	@Query("select wp from Workplan wp join wp.tasks as t where t.id = :id")
 	Collection<Workplan> findWorkplansByTask(@Param("id") int id);
 	
+	@Query("select w.tasks from Workplan w where w.id = ?1")
+	Collection<Task> findManyByWorkplanId(int workplanId);
+
+	@Query("select count(t)>0 from Task t where t.taskId = ?1")
+	Boolean checkUniqueTicker(String taskId);
+	
 }

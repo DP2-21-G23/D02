@@ -8,6 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+manager.task.form.label.taskId = Task ID:
 manager.task.form.label.title = Title:
 manager.task.form.label.startMoment = Start Moment:
 manager.task.form.label.endMoment = End Moment:
@@ -30,6 +31,7 @@ manager.task.form.error.spam.is-spam = This task is spam, and therefore will not
 manager.task.form.error.spam.has-errors = An error has occurred, please refresh and try again
 manager.task.form.error.incorrect-date = Start and end dates must be within the intervals of the work plans to which it is associated
 manager.task.form.error.impossible-make-private = It cannot be made private, the task is contained in a public work plan
+manager.task.form.error.spam.unique-task-id = This ID already exists, please choose another one
 
 manager.task.list.label.title = Title
 manager.task.list.label.startMoment = Start Moment

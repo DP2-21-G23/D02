@@ -12,6 +12,7 @@ import acme.entities.workplans.Workplan;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractDeleteService;
 
 @Service
@@ -20,7 +21,7 @@ public class ManagerTaskDeleteService implements AbstractDeleteService<Manager, 
 	// Internal state
 
 	@Autowired
-	ManagerTaskRepository repository;
+	protected ManagerTaskRepository repository;
 
 	
 
@@ -29,8 +30,20 @@ public class ManagerTaskDeleteService implements AbstractDeleteService<Manager, 
 	@Override
 	public boolean authorise(final Request<Task> request) {
 		assert request != null;
+		
+		boolean res;
+		int taskId;
+		final Task task;
+		final Manager manager;
+		Principal principal;
 
-		return true;
+		taskId = request.getModel().getInteger("id");
+		task = this.repository.findOneTaskById(taskId);
+		manager = task.getOwner();
+		principal = request.getPrincipal();
+		res = manager.getUserAccount().getId() == principal.getAccountId();
+		
+		return res;
 	}
 
 	@Override
@@ -48,7 +61,7 @@ public class ManagerTaskDeleteService implements AbstractDeleteService<Manager, 
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "title", "startMoment", "endMoment", "workloadHours", "workloadFraction",
+		request.unbind(entity, model, "taskId", "title", "startMoment", "endMoment", "workloadHours", "workloadFraction",
 			"description", "link", "isPublic");
 	}
 

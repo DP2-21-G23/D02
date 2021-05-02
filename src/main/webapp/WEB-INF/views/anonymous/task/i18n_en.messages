@@ -8,6 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+anonymous.task.form.label.taskId = Task ID:
 anonymous.task.form.label.title = Title:
 anonymous.task.form.label.startMoment = Start Moment:
 anonymous.task.form.label.endMoment = End Moment:

@@ -16,7 +16,8 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form readonly="true">
-
+	
+	<acme:form-textbox code="authenticated.task.form.label.taskId" path="taskId"/>
 	<acme:form-textbox code="authenticated.task.form.label.title" path="title"/>
 	<acme:form-moment code="authenticated.task.form.label.startMoment" path="startMoment"/>
 	<acme:form-moment code="authenticated.task.form.label.endMoment" path="endMoment"/>
