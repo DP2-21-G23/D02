@@ -47,7 +47,7 @@ public class ManagerWorkplanShowService implements AbstractShowService<Manager, 
 
 		request.unbind(entity, model, "title", "executionPeriodStart", "executionPeriodEnd", "workload", "isPublic");
 		
-		final SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd HH:mm aa");
+		final SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 		final Date earliestTask = this.repository.earliestTaskDateFromWorkplan(entity.getId());
 		final Calendar aux = Calendar.getInstance();
 		aux.setTime(earliestTask);
@@ -60,9 +60,9 @@ public class ManagerWorkplanShowService implements AbstractShowService<Manager, 
 	    
 	    final Date latestTask = this.repository.latestTaskDateFromWorkplan(entity.getId());
 	    aux.setTime(latestTask);
-	    aux.set(Calendar.HOUR, 17);
+	    aux.set(Calendar.HOUR_OF_DAY, 17);
 	    aux.set(Calendar.MINUTE, 0);
-		aux.add(Calendar.DAY_OF_MONTH, 0);
+		aux.add(Calendar.DAY_OF_MONTH, 1);
 	    final Date latestDate = aux.getTime();
 	    suggestionBuilder.append(formato.format(latestDate)+">");
 	    
