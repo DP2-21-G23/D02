@@ -27,6 +27,8 @@ manager.task.form.error.past-startMoment = The start moment cannot be earlier th
 manager.task.form.error.past-endMoment = The end moment cannot be earlier than today
 manager.task.form.error.incorrect-interval = The end moment must be after the start moment
 manager.task.form.error.incorrect-workload = The workload does not fit the execution period
+manager.task.form.error.negative-workload = The workload can not be a negative value
+manager.task.form.error.incorrect-workloadFraction = If the workload hours are 0, the workload fraction must be at least 1
 
 manager.task.form.error.spam.is-spam = This task is spam, and therefore will not be allowed to be published
 manager.task.form.error.spam.has-errors = An error has occurred, please refresh and try again

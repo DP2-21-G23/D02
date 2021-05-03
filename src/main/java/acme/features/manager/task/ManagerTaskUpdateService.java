@@ -158,6 +158,14 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 			errors.state(request, !notPossibleMakePrivate, "isPublic", "manager.task.form.error.impossible-make-private");
 		}
 		
+		if (!errors.hasErrors("workloadHours")) {
+			final Boolean positiveWorkloadHours = entity.getWorkloadHours() >= 0;
+			errors.state(request, positiveWorkloadHours, "workloadHours", "manager.task.form.error.negative-workload");
+		}
+		
+		if(!errors.hasErrors("workloadHours") && entity.getWorkloadHours()==0 && (entity.getWorkloadFraction()==null || entity.getWorkloadFraction()<=0)) {
+			errors.state(request, false, "workloadFraction", "manager.task.form.error.incorrect-workloadFraction");
+		}
 		
 	}
 
