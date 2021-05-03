@@ -146,8 +146,16 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 			errors.state(request, !this.repository.checkUniqueTicker(entity.getTaskId()), "taskId", "manager.task.form.error.spam.unique-task-id");
 		}
 		
+		if (!errors.hasErrors("workloadHours")) {
+			final Boolean positiveWorkloadHours = entity.getWorkloadHours() >= 0;
+			errors.state(request, positiveWorkloadHours, "workloadHours", "manager.task.form.error.negative-workload");
+		}
 		
+		if(!errors.hasErrors("workloadHours") && entity.getWorkloadHours()==0 && (entity.getWorkloadFraction()==null || entity.getWorkloadFraction()<=0)) {
+			errors.state(request, false, "workloadFraction", "manager.task.form.error.incorrect-workloadFraction");
+		}
 	}
+		
 
 	@Override
 	public void create(final Request<Task> request, final Task entity) {

@@ -27,6 +27,8 @@ manager.task.form.error.past-startMoment = El momento de inicio no puede ser ant
 manager.task.form.error.past-endMoment = El momento de fin no puede ser anterior a hoy
 manager.task.form.error.incorrect-interval = El momento de fin debe ser posterior al momento de inicio
 manager.task.form.error.incorrect-workload = La carga de trabajo no se ajusta al periodo de ejecución
+manager.task.form.error.negative-workload = La carga de trabajo no puede ser un valor negativo
+manager.task.form.error.incorrect-workloadFraction = Si las horas de carga de trabajo son cero, la fraccion de carga de trabajo debe ser al menos 1
 
 manager.task.form.error.spam.is-spam = Esta tarea es spam, por lo que no se puede publicar
 manager.task.form.error.spam.has-errors = Ha ocurrido un error, por favor refresque e inténtelo de nuevo
