@@ -2,6 +2,7 @@ package acme.features.manager.workplan;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -85,6 +86,21 @@ public class ManagerWorkplanShowService implements AbstractShowService<Manager, 
 			taskIds.append(t.getTaskId());
 		}
 		model.setAttribute("modelTasks", taskIds);
+		
+		final StringBuilder validTaskIds = new StringBuilder();
+		Collection<String> taskIdsCollection;
+		if(entity.getIsPublic()) {
+			taskIdsCollection = this.repository.findValidTasksPublicWorkPlan(entity.getExecutionPeriodStart(), entity.getExecutionPeriodEnd(), entity.getOwner().getId());
+		} else {
+			taskIdsCollection = this.repository.findValidTasks(entity.getExecutionPeriodStart(), entity.getExecutionPeriodEnd(), entity.getOwner().getId());
+		}
+		for (final String tId : taskIdsCollection) {
+			if(!validTaskIds.toString().isEmpty()) {
+				validTaskIds.append(", ");	
+			}
+			validTaskIds.append(tId);
+		}
+		model.setAttribute("validTaskIds", validTaskIds.toString());
 		
 	}
 

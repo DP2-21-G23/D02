@@ -2,6 +2,7 @@ package acme.features.manager.workplan;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -110,6 +111,20 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 		}
 		model.setAttribute("modelTasks", taskIds.toString());
 		
+		final StringBuilder validTaskIds = new StringBuilder();
+		Collection<String> taskIdsCollection;
+		if(entity.getIsPublic()) {
+			taskIdsCollection = this.repository.findValidTasksPublicWorkPlan(entity.getExecutionPeriodStart(), entity.getExecutionPeriodEnd(), entity.getOwner().getId());
+		} else {
+			taskIdsCollection = this.repository.findValidTasks(entity.getExecutionPeriodStart(), entity.getExecutionPeriodEnd(), entity.getOwner().getId());
+		}
+		for (final String tId : taskIdsCollection) {
+			if(!validTaskIds.toString().isEmpty()) {
+				validTaskIds.append(", ");	
+			}
+			validTaskIds.append(tId);
+		}
+		model.setAttribute("validTaskIds", validTaskIds.toString());
 	}
 
 	@Override
@@ -147,11 +162,6 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 			errors.state(request, !incorrectDate, "executionPeriodEnd", "manager.task.form.error.incorrect-date");
 		}
 		
-		if(!errors.hasErrors("isPublic") && entity.getIsPublic()==true) {
-			final Boolean publish = this.repository.isNotPossibleMakePublic(entity.getId());
-			errors.state(request, !publish, "isPublic", "manager.workplan.form.error.publish");
-		}
-		
 		if(!errors.hasErrors("modelTasks") && !request.getModel().getString("modelTasks").equals("")) {
 			boolean hasNonExistingTasks = false; 
 			boolean hasTasksOutsidePeriod = false;
@@ -161,8 +171,15 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 			final StringBuilder tasksOutsidePeriod = new StringBuilder();
 			final StringBuilder tasksNotOwned = new StringBuilder();
 			final StringBuilder privateTasks = new StringBuilder();
-			final String[] tasks = ((String) request.getModel().getAttribute("modelTasks")).split(",");
-			for (String taskId : tasks) {
+			final Set<String> tasks = new HashSet<String>();
+			
+
+			final String[] taskIds = ((String) request.getModel().getAttribute("modelTasks")).split(",");
+			for (final String t : taskIds) {
+				tasks.add(t.trim());
+			}
+			
+			for(String taskId : tasks) {
 				taskId = taskId.trim();
 				if (!taskId.equals("")) {
 					if (!this.repository.taskExists(taskId)) {
@@ -214,17 +231,18 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 			}
 			if (hasTasksNowOwned) {
 				errors.state(request, false, "modelTasks", "manager.workplan.form.error.tasks.not-owned");
-				errors.state(request, false, "modelTasks", " " + tasksNotOwned.toString());
+				errors.state(request, false, "modelTasks", " " + tasksNotOwned.toString()+"\n\r");
 			}
 			if (hasNonExistingTasks) {
 				errors.state(request, false, "modelTasks", "manager.workplan.form.error.tasks.wrong-task-ids");
-				errors.state(request, false, "modelTasks", " " + nonExistingTasks.toString());
+				errors.state(request, false, "modelTasks", " " + nonExistingTasks.toString()+"\n\r");
 			}
 			if (hasTasksOutsidePeriod) {
 				errors.state(request, false, "modelTasks", "manager.workplan.form.error.tasks.wrong-task-dates");
-				errors.state(request, false, "modelTasks", " " + tasksOutsidePeriod.toString());
+				errors.state(request, false, "modelTasks", " " + tasksOutsidePeriod.toString()+"\n\r");
 			}
 			if (hasPrivateTasks) {
+				errors.state(request, false, "isPublic", "manager.workplan.form.error.publish");
 				errors.state(request, false, "isPublic", "manager.workplan.form.error.publish.tasks");
 				errors.state(request, false, "isPublic", " " + privateTasks.toString());
 			}

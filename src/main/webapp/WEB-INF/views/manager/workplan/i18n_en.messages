@@ -14,7 +14,8 @@ manager.workplan.form.label.execution-period-start = Execution period start:
 manager.workplan.form.label.execution-period-end = Execution period end:
 manager.workplan.form.label.workload = Workload:
 manager.workplan.form.label.is-public = Publish
-manager.workplan.form.label.tasks = Tasks (enter the task IDs, separated by commas):
+manager.workplan.form.label.available-tasks = The following tasks can be added to the work plan (they all belong to you, are within the execution period and are public if so is the work plan):
+manager.workplan.form.label.tasks = Work plan tasks (enter the desired task IDs, separated by commas, or remove them if you wish to delete them):
 
 manager.workplan.form.button.tasks = Tasks
 manager.workplan.form.button.create = Create
@@ -26,14 +27,14 @@ manager.workplan.form.error.past-executionPeriodStart = The start cannot be earl
 manager.workplan.form.error.past-executionPeriodEnd = The end cannot be earlier than today
 manager.workplan.form.error.incorrect-interval = The end moment must be after the start moment
 
-manager.workplan.form.error.spam.is-spam = This workplan is spam, and therefore will not be allowed to be published
+manager.workplan.form.error.spam.is-spam = This work plan is spam, and therefore will not be allowed to be published
 manager.workplan.form.error.spam.has-errors = An error has occurred, please refresh and try again
 manager.workplan.form.error.incorrect-date = Start and end dates must be within the intervals of the work plans to which it is associated
-manager.workplan.form.error.publish = It cannot be published, this workplan contains private tasks
+manager.workplan.form.error.publish = It cannot be published, this work plan contains private tasks
 manager.workplan.form.error.publish.tasks = The following tasks impede this action:
 manager.workplan.form.error.tasks.wrong-task-dates = The following tasks are not within the execution period:
 manager.workplan.form.error.tasks.not-owned = The following tasks do not belong to you: 
-manager.workplan.form.error.tasks.wrong-task-ids = The following tasks do not exist or cannot be added:
+manager.workplan.form.error.tasks.wrong-task-ids = The following tasks do not exist:
 
 manager.workplan.list.label.title = Title
 manager.workplan.list.label.execution-period-start = Execution period start
