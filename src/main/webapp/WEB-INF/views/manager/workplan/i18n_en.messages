@@ -14,7 +14,7 @@ manager.workplan.form.label.execution-period-start = Execution period start:
 manager.workplan.form.label.execution-period-end = Execution period end:
 manager.workplan.form.label.workload = Workload:
 manager.workplan.form.label.is-public = Publish
-manager.workplan.form.label.nueva-task = Tasks (enter the task IDs, separated by commas):
+manager.workplan.form.label.tasks = Tasks (enter the task IDs, separated by commas):
 
 manager.workplan.form.button.tasks = Tasks
 manager.workplan.form.button.create = Create
