@@ -84,6 +84,18 @@ public class AdministratorConfigurationUpdateService implements AbstractUpdateSe
 		assert entity != null;
 		assert errors != null;
 		
+		if(!errors.hasErrors("spamWordsES")) {
+			final boolean esVacioES = request.getModel().getString("spamWordsES").equals("")||request.getModel().getString("spamWordsES")==null;
+			errors.state(request, !esVacioES, "spamWordsES", "administrator.configuration.form.error.spamWords-vacio");
+		}
+		
+		if(!errors.hasErrors("spamWordsEN")) {
+			final boolean esVacioEN = request.getModel().getString("spamWordsEN").equals("")||request.getModel().getString("spamWordsEN")==null;
+			errors.state(request, !esVacioEN, "spamWordsEN", "administrator.configuration.form.error.spamWords-vacio");
+		}
+		
+		
+		
 	}
 
 	@Override
@@ -95,7 +107,7 @@ public class AdministratorConfigurationUpdateService implements AbstractUpdateSe
 		final String spamWordsEN = request.getModel().getString("spamWordsEN");
 		
 		final HashMap<String, String> spamWords = entity.getSpamWords();
-		spamWords.replace("es",spamWordsES);
+		spamWords.replace("es", spamWordsES);
 		spamWords.replace("en", spamWordsEN);
 		
 		entity.setSpamWords(spamWords);

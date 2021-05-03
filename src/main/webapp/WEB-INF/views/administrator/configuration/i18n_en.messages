@@ -4,3 +4,5 @@ administrator.configuration.form.label.threshold = Threshold
 
 administrator.configuration.form.button.update = Update
 administrator.configuration.form.button.return = Return
+
+administrator.configuration.form.error.spamWords-vacio = Must not be blank

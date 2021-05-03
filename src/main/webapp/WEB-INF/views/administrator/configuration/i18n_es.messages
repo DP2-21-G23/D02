@@ -4,3 +4,5 @@ administrator.configuration.form.label.threshold = Umbral
 
 administrator.configuration.form.button.update = Actualizar
 administrator.configuration.form.button.return = Volver
+
+administrator.configuration.form.error.spamWords-vacio = No puede estar en blanco

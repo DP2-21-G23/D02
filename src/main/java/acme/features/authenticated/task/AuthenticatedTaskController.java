@@ -18,7 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import acme.components.CustomCommand;
 import acme.entities.tasks.Task;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
@@ -32,9 +31,6 @@ public class AuthenticatedTaskController extends AbstractController<Authenticate
 
 	@Autowired
 	protected AuthenticatedTaskListService	listService;
-	
-	@Autowired
-	protected AuthenticatedTaskListNonFinishedService listNonFinishedService;
 
 	@Autowired
 	protected AuthenticatedTaskShowService showService;
@@ -44,7 +40,6 @@ public class AuthenticatedTaskController extends AbstractController<Authenticate
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
-		super.addCustomCommand(CustomCommand.LIST_NON_FINISHED, BasicCommand.LIST, this.listNonFinishedService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
 
