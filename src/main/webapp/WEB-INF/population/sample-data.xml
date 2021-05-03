@@ -353,6 +353,21 @@
 		</property>
 	</bean>
 	
+	<bean id="task16" class="acme.entities.tasks.Task">
+		<property name="taskId" value="T016" />
+		<property name="title" value="Tarea 16" />
+		<property name="startMoment" value="2022/08/15 12:00" />
+		<property name="endMoment" value="2022/08/16 05:00" />
+		<property name="workloadHours" value="2" />
+		<property name="workloadFraction" ><null/></property>
+		<property name="description" value="Esta es la descripción de la tarea 16" />
+		<property name="link"><null/></property>
+		<property name="isPublic" value="False" />
+		<property name="owner">
+			<ref bean="managerManager02"/>
+		</property>
+	</bean>
+	
 	<!-- Workplans -->
 	
 	<bean id="workplan01" class="acme.entities.workplans.Workplan">
@@ -494,6 +509,21 @@
 		</property>
 		<property name="owner">
 			<ref bean="managerManager01"/>
+		</property>
+	</bean>
+	
+	<bean id="workplan09" class="acme.entities.workplans.Workplan">
+		<property name="title" value="Workplan 09" />
+		<property name="isPublic" value ="False" />
+		<property name="executionPeriodStart" value="2022/08/15 05:00" />
+		<property name="executionPeriodEnd" value="2022/08/16 23:59" />
+		<property name="tasks">
+			<list>
+				<ref bean="task16"/>
+			</list>
+		</property>
+		<property name="owner">
+			<ref bean="managerManager02"/>
 		</property>
 	</bean>
 	
