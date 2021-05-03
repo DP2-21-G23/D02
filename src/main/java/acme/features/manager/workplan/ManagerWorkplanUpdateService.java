@@ -2,8 +2,9 @@ package acme.features.manager.workplan;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -73,9 +74,6 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 		
 		request.unbind(entity, model, "title", "executionPeriodStart", "executionPeriodEnd", "workload", "isPublic");
 		
-		model.setAttribute("nuevaTask", "");
-		model.setAttribute("borrarTask", "");
-		
 		final SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 		final Date earliestTask = this.repository.earliestTaskDateFromWorkplan(entity.getId());
 		final Date latestTask = this.repository.latestTaskDateFromWorkplan(entity.getId());
@@ -100,6 +98,17 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 		} else {
 			model.setAttribute("suggestion", "");
 		}
+		
+		final Set<Task> tasks = new HashSet<Task>(entity.getTasks());
+		final StringBuilder taskIds = new StringBuilder();
+		
+		for (final Task t : tasks) {
+			if (!taskIds.toString().isEmpty()) {
+				taskIds.append(", ");
+			}
+			taskIds.append(t.getTaskId());
+		}
+		model.setAttribute("modelTasks", taskIds.toString());
 		
 	}
 
@@ -143,44 +152,84 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 			errors.state(request, !publish, "isPublic", "manager.workplan.form.error.publish");
 		}
 		
-		if(!errors.hasErrors("nuevaTask") && !request.getModel().getString("nuevaTask").equals("")) {
-			
-			final String taskId = request.getModel().getString("nuevaTask");
-			final Task t = this.repository.searchTask(taskId);
-			if(t!=null) {
-				final Boolean boundaries = entity.getExecutionPeriodStart().after(t.getStartMoment())||entity.getExecutionPeriodEnd().before(t.getEndMoment());
-				errors.state(request, !boundaries, "nuevaTask", "manager.workplan.form.error.nueva-task-fechas");
-				
-				boolean mine;
-				final Manager manager;
-				Principal principal;
+		if(!errors.hasErrors("modelTasks") && !request.getModel().getString("modelTasks").equals("")) {
+			boolean hasNonExistingTasks = false; 
+			boolean hasTasksOutsidePeriod = false;
+			boolean hasTasksNowOwned = false;
+			boolean hasPrivateTasks = false;
+			final StringBuilder nonExistingTasks = new StringBuilder();
+			final StringBuilder tasksOutsidePeriod = new StringBuilder();
+			final StringBuilder tasksNotOwned = new StringBuilder();
+			final StringBuilder privateTasks = new StringBuilder();
+			final String[] tasks = ((String) request.getModel().getAttribute("modelTasks")).split(",");
+			for (String taskId : tasks) {
+				taskId = taskId.trim();
+				if (!taskId.equals("")) {
+					if (!this.repository.taskExists(taskId)) {
+						if (!nonExistingTasks.toString().isEmpty()) {
+							nonExistingTasks.append(", ");
+						} else {
+							hasNonExistingTasks = true;
+						}
+						nonExistingTasks.append(taskId);
+						continue;
+					}
+					final Task t = this.repository.findOneTaskByTaskId(taskId);
+					boolean taskOwned;
+					final Manager manager;
+					Principal principal;
 
-				manager = t.getOwner();
-				principal = request.getPrincipal();
-				mine = manager.getUserAccount().getId() == principal.getAccountId();
-				errors.state(request, mine, "nuevaTask", "manager.workplan.form.error.nueva-task-propia");
-				
-				final Boolean contains = entity.getTasks().contains(t);
-				errors.state(request, !contains, "nuevaTask", "manager.workplan.form.error.nueva-task-contenida");
-			}else {
-				errors.state(request, false, "nuevaTask", "manager.workplan.form.error.nueva-task-no-existe");
+					manager = t.getOwner();
+					principal = request.getPrincipal();
+					taskOwned = manager.getUserAccount().getId() == principal.getAccountId();
+					if(!taskOwned) {
+						if (!tasksNotOwned.toString().isEmpty()) {
+							tasksNotOwned.append(", ");
+						} else {
+							hasTasksNowOwned = true;
+						}
+						tasksNotOwned.append(taskId);
+						continue;
+					}
+					
+					final boolean boundaries = !this.repository.taskIsInsideExecutionPeriod(taskId, entity.getExecutionPeriodStart(), entity.getExecutionPeriodEnd());
+					if(boundaries) {
+						if (!tasksOutsidePeriod.toString().isEmpty()) {
+							tasksOutsidePeriod.append(", ");
+						} else {
+							hasTasksOutsidePeriod = true;
+						}
+						tasksOutsidePeriod.append(taskId);
+					}
+					
+					if(!this.repository.taskIsPublic(taskId) && entity.getIsPublic()) {
+						if (!privateTasks.toString().isEmpty()) {
+							privateTasks.append(", ");
+						} else {
+							hasPrivateTasks = true;
+						}
+						privateTasks.append(taskId);
+					}
+				}
 			}
-			
-			
+			if (hasTasksNowOwned) {
+				errors.state(request, false, "modelTasks", "manager.workplan.form.error.tasks.not-owned");
+				errors.state(request, false, "modelTasks", " " + tasksNotOwned.toString());
+			}
+			if (hasNonExistingTasks) {
+				errors.state(request, false, "modelTasks", "manager.workplan.form.error.tasks.wrong-task-ids");
+				errors.state(request, false, "modelTasks", " " + nonExistingTasks.toString());
+			}
+			if (hasTasksOutsidePeriod) {
+				errors.state(request, false, "modelTasks", "manager.workplan.form.error.tasks.wrong-task-dates");
+				errors.state(request, false, "modelTasks", " " + tasksOutsidePeriod.toString());
+			}
+			if (hasPrivateTasks) {
+				errors.state(request, false, "isPublic", "manager.workplan.form.error.publish.tasks");
+				errors.state(request, false, "isPublic", " " + privateTasks.toString());
+			}
 		}
 		
-		if(!errors.hasErrors("borrarTask") && !request.getModel().getString("borrarTask").equals("")) {
-			final String taskId = request.getModel().getString("borrarTask");
-			final Task t = this.repository.searchTask(taskId);
-			if(t!=null) {
-				final Boolean contains = entity.getTasks().contains(t);
-				errors.state(request, contains, "borrarTask", "manager.workplan.form.error.borrar-task-no-contenida");
-			}else {
-				errors.state(request, false, "borrarTask", "manager.workplan.form.error.nueva-task-no-existe");
-			}
-			
-		}
-
 		if(entity.getIsPublic()) {
 			final SpamModule sm = new SpamModule(this.spamRepository);
 			
@@ -192,8 +241,6 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 			}
 		}
 		
-	
-		
 	}
 
 	@Override
@@ -201,14 +248,11 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 		assert request != null;
 		assert entity != null;
 		
-		final String nueva = request.getModel().getString("nuevaTask");
-		final String borrar = request.getModel().getString("borrarTask");
-		final Task tNueva = this.repository.searchTask(nueva);
-		final Task tBorrar = this.repository.searchTask(borrar);
-		
-		final Collection<Task> tasks = entity.getTasks();
-		tasks.add(tNueva);
-		tasks.remove(tBorrar);
+		final Set<Task> tasks = new HashSet<Task>();
+		final String[] taskIds = (request.getModel().getString("modelTasks")).split(",");
+		for (final String t : taskIds) {
+			tasks.add(this.repository.findOneTaskByTaskId(t.trim()));
+		}
 		entity.setTasks(tasks);
 		
 		this.repository.save(entity);
