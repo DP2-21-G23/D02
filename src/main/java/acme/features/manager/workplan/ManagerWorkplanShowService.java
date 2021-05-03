@@ -3,11 +3,14 @@ package acme.features.manager.workplan;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.roles.Manager;
+import acme.entities.tasks.Task;
 import acme.entities.workplans.Workplan;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -72,6 +75,16 @@ public class ManagerWorkplanShowService implements AbstractShowService<Manager, 
 			model.setAttribute("suggestion", "");
 		}
 
+		final Set<Task> tasks = new HashSet<Task>(entity.getTasks());
+		final StringBuilder taskIds = new StringBuilder();
+		
+		for (final Task t : tasks) {
+			if (!taskIds.toString().isEmpty()) {
+				taskIds.append(", ");
+			}
+			taskIds.append(t.getTaskId());
+		}
+		model.setAttribute("modelTasks", taskIds);
 		
 	}
 

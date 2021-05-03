@@ -38,5 +38,16 @@ public interface ManagerWorkplanRepository extends AbstractRepository {
 
 	@Query("select max(t.endMoment) from Workplan wp join wp.tasks as t where wp.id = ?1")
 	Date latestTaskDateFromWorkplan(int id);
+	
+	@Query("select count(t)>0 from Task t where t.taskId = ?1")
+	boolean taskExists(String taskId);
+	
+	@Query("select case when (:executionPeriodStart <= t.startMoment and :executionPeriodEnd >= t.endMoment) then true else false end from Task t where t.taskId = :taskId")
+	boolean taskIsInsideExecutionPeriod(@Param("taskId") String taskId, @Param("executionPeriodStart") Date executionPeriodStart, @Param("executionPeriodEnd") Date executionPeriodEnd);
+	
+	@Query("select t from Task t where t.taskId = ?1")
+	Task findOneTaskByTaskId(String taskId);
 
+	@Query("select t.isPublic from Task t where t.taskId = :taskId")
+	boolean taskIsPublic(@Param("taskId") String taskId);
 }
