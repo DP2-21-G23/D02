@@ -26,7 +26,7 @@
     <bean id="configuration1" class="acme.entities.configurations.Configuration">
         <property name="spamWords">
             <util:map map-class="java.util.HashMap">
-                <entry key="en" value="sex, hard core, viagra, cialis, Nigeria, you've won, million dolar"/>
+                <entry key="en" value="sex, hard core, viagra, cialis, Nigeria, you've won, million dollar"/>
                 <entry key="es" value="sexo, hard core, viagra, cialis, Nigeria, has ganado, millón de dólares"/>
             </util:map>
         </property>        

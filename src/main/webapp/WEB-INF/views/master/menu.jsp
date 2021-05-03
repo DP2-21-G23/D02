@@ -27,8 +27,6 @@
 
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.task.list-finish-task" action="/authenticated/task/list"/>
-			<acme:menu-suboption code="master.menu.authenticated.task.list-non-finish-task" action="/authenticated/task/list-non-finished"/>
-			<acme:menu-suboption code="master.menu.authenticated.workplan.list" action="/authenticated/workplan/list"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">
