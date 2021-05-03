@@ -50,4 +50,13 @@ public interface ManagerWorkplanRepository extends AbstractRepository {
 
 	@Query("select t.isPublic from Task t where t.taskId = :taskId")
 	boolean taskIsPublic(@Param("taskId") String taskId);
+	
+	@Query("select t.taskId from Task t where :executionPeriodEnd >= t.endMoment and :executionPeriodStart <= t.startMoment and t.owner.id = :ownerId")
+	Collection<String> findValidTasks(@Param("executionPeriodStart") Date executionPeriodStart, @Param("executionPeriodEnd") Date executionPeriodEnd, @Param("ownerId") int ownerId);
+	
+	@Query("select t.taskId from Task t where :executionPeriodEnd >= t.endMoment and :executionPeriodStart <= t.startMoment and t.owner.id = :ownerId and t.isPublic = true")
+	Collection<String> findValidTasksPublicWorkPlan(@Param("executionPeriodStart") Date executionPeriodStart, @Param("executionPeriodEnd") Date executionPeriodEnd, @Param("ownerId") int ownerId);
+	
+	@Query("select case when (t.isPublic = false) then true else false end from Task t where t.taskId = ?1")
+	Boolean taskIsPrivateByTaskId(String taskId);
 }
