@@ -8,6 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+manager.task.form.label.taskId = Task ID:
 manager.task.form.label.title = Title:
 manager.task.form.label.startMoment = Start Moment:
 manager.task.form.label.endMoment = End Moment:
@@ -25,11 +26,15 @@ manager.task.form.button.delete = Delete
 manager.task.form.error.past-startMoment = The start moment cannot be earlier than today
 manager.task.form.error.past-endMoment = The end moment cannot be earlier than today
 manager.task.form.error.incorrect-interval = The end moment must be after the start moment
+manager.task.form.error.incorrect-workload = The workload does not fit the execution period
+manager.task.form.error.negative-workload = The workload can not be a negative value
+manager.task.form.error.incorrect-workloadFraction = If the workload hours are 0, the workload fraction must be at least 1
 
 manager.task.form.error.spam.is-spam = This task is spam, and therefore will not be allowed to be published
 manager.task.form.error.spam.has-errors = An error has occurred, please refresh and try again
 manager.task.form.error.incorrect-date = Start and end dates must be within the intervals of the work plans to which it is associated
 manager.task.form.error.impossible-make-private = It cannot be made private, the task is contained in a public work plan
+manager.task.form.error.spam.unique-task-id = This ID already exists, please choose another one
 
 manager.task.list.label.title = Title
 manager.task.list.label.startMoment = Start Moment

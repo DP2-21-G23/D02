@@ -17,6 +17,7 @@
 
 <acme:form readonly="true">
 
+	<acme:form-textbox code="anonymous.workplan.form.label.title" path="title"/>
 	<acme:form-moment code="anonymous.workplan.form.label.execution-period-start" path="executionPeriodStart"/>
 	<acme:form-moment code="anonymous.workplan.form.label.execution-period-end" path="executionPeriodEnd"/>
 	<acme:form-textbox code="anonymous.workplan.form.label.workload" path="workload"/>

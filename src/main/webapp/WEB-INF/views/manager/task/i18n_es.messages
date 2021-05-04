@@ -8,6 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+manager.task.form.label.taskId = ID de la tarea:
 manager.task.form.label.title = Título:
 manager.task.form.label.startMoment = Fecha inicio:
 manager.task.form.label.endMoment = Fecha fin:
@@ -25,11 +26,15 @@ manager.task.form.button.delete = Borrar
 manager.task.form.error.past-startMoment = El momento de inicio no puede ser anterior a hoy
 manager.task.form.error.past-endMoment = El momento de fin no puede ser anterior a hoy
 manager.task.form.error.incorrect-interval = El momento de fin debe ser posterior al momento de inicio
+manager.task.form.error.incorrect-workload = La carga de trabajo no se ajusta al periodo de ejecución
+manager.task.form.error.negative-workload = La carga de trabajo no puede ser un valor negativo
+manager.task.form.error.incorrect-workloadFraction = Si las horas de carga de trabajo son cero, la fraccion de carga de trabajo debe ser al menos 1
 
 manager.task.form.error.spam.is-spam = Esta tarea es spam, por lo que no se puede publicar
 manager.task.form.error.spam.has-errors = Ha ocurrido un error, por favor refresque e inténtelo de nuevo
 manager.task.form.error.incorrect-date = Las fechas de inicio y fin deben estar dentro de los intervalos de los planes de trabajo a los que está asociado
 manager.task.form.error.impossible-make-private = No se puede hacer privada, la tarea está contenia en un plan de trabajo público
+manager.task.form.error.spam.unique-task-id = Este ID ya existe, por favor elije otro
 
 manager.task.list.label.title = Título
 manager.task.list.label.startMoment = Fecha inicio

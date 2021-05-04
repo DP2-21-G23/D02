@@ -1,7 +1,7 @@
 administrator.dashboard.form.title 									=	Dashboard
 
 administrator.dashboard.form.tasks.private							=   Number of private tasks
-administrator.dashboard.form.tasks.public							=	Number of tasks
+administrator.dashboard.form.tasks.public							=	Number of public tasks
 
 administrator.dashboard.form.tasks.finished							= 	Number of finished tasks
 administrator.dashboard.form.tasks.unfinished						= 	Number of unfinished tasks
@@ -16,6 +16,11 @@ administrator.dashboard.form.stats.min								= 	Minimum
 administrator.dashboard.form.stats.max								=	Maximum
 administrator.dashboard.form.stats.avg								=	Average
 administrator.dashboard.form.stats.stddev							=	Standard deviation
+
+administrator.dashboard.form.stats.min.period						= 	Minimum (days)
+administrator.dashboard.form.stats.max.period						=	Maximum (days)
+administrator.dashboard.form.stats.avg.period						=	Average (days)
+administrator.dashboard.form.stats.stddev.period					=	Standard deviation (days)
 
 administrator.dashboard.form.stats.title.task-periods				=	Tasks periods
 administrator.dashboard.form.stats.title.task-workload				=	Tasks workloads

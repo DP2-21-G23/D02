@@ -25,7 +25,7 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AnonymousShoutRepository extends AbstractRepository {
 
-	@Query("select s from Shout s where s.moment >= ?1")
+	@Query("select s from Shout s where s.moment >= ?1 order by s.moment")
 	Collection<Shout> findMany(Date date);
 
 	@Query("select s from Shout s where s.id = :id")

@@ -29,4 +29,10 @@ public interface AuthenticatedTaskRepository extends AbstractRepository {
 
 	@Query("select t from Task t where t.id = :id")
 	Task findOneTaskById(@Param("id") int id);
+	
+	@Query("select w.tasks from Workplan w where w.id = ?1")
+	Collection<Task> findManyByWorkplanId(int workplanId);
+
+	@Query("select ct from Task ct where ct.endMoment > current_timestamp and ct.isPublic = true")
+	Collection<Task> findNonFinishedTask();
 }

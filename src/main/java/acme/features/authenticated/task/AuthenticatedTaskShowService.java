@@ -29,7 +29,7 @@ public class AuthenticatedTaskShowService implements AbstractShowService<Authent
 	@Autowired
 	protected AuthenticatedTaskRepository repository;
 
-	// AbstractShowService<Anonymous, Shout> interface --------------
+	// AbstractShowService<Authenticated, Task> interface --------------
 
 	@Override
 	public boolean authorise(final Request<Task> request) {
@@ -46,7 +46,7 @@ public class AuthenticatedTaskShowService implements AbstractShowService<Authent
 		
 		model.setAttribute("ownerName", entity.getOwner().getIdentity().getFullName());
 
-		request.unbind(entity, model, "title", "startMoment", "endMoment", "workloadHours", "workloadFraction",
+		request.unbind(entity, model, "taskId", "title", "startMoment", "endMoment", "workloadHours", "workloadFraction",
 			"description", "link", "owner");
 	}
 

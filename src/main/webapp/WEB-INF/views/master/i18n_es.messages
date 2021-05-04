@@ -37,18 +37,21 @@ master.menu.anonymous.workplan.list = Lista de planes de trabajo
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Autenticado
-master.menu.authenticated.task.list = Lista de tareas
+master.menu.authenticated.task.list-finish-task = Lista de tareas finalizadas
 
 # master.menu.manager #######################################################
 
 master.menu.manager = Gerente
 master.menu.manager.task.list = Lista de tareas
 master.menu.manager.task.create = Crear tarea
+master.menu.manager.workplan.list = Lista de planes de trabajo
+master.menu.manager.workplan.create = Crear plan de trabajo
 
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
+master.menu.administrator.configuration = Configuración
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
@@ -72,6 +75,7 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.become-manager = Hazte gerente
 
 ﻿# master.footer ###############################################################
 

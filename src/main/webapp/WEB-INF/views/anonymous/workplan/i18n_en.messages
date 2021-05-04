@@ -8,6 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+anonymous.workplan.form.label.title = Title:
 anonymous.workplan.form.label.execution-period-start = Execution period start:
 anonymous.workplan.form.label.execution-period-end = Execution period end:
 anonymous.workplan.form.label.workload = Workload:
@@ -16,6 +17,7 @@ anonymous.workplan.form.label.is-public = Is public
 anonymous.workplan.form.button.tasks = Tasks
 anonymous.workplan.form.button.return = Return
 
+anonymous.workplan.list.label.title = Title
 anonymous.workplan.list.label.execution-period-start = Execution period start
 anonymous.workplan.list.label.execution-period-end = Execution period end
 anonymous.workplan.list.label.workload = Workload Hours

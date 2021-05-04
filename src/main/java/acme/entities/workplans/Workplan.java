@@ -6,11 +6,14 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import acme.entities.roles.Manager;
 import acme.entities.tasks.Task;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
@@ -27,6 +30,9 @@ public class Workplan extends DomainEntity {
 	
 	// -------------- Attributes --------------
 	
+	@NotBlank
+	protected String title;
+	
 	@NotNull
 	protected Boolean isPublic;
 	
@@ -42,6 +48,12 @@ public class Workplan extends DomainEntity {
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	protected Collection<Task> tasks;
+	
+	@ManyToOne(optional=false)
+	protected Manager owner;
+	
+	
+	// -------------- Derived Attributes --------------
 	
 	@Transient
 	public String getWorkload() {

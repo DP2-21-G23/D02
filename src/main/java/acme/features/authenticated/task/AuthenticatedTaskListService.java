@@ -31,7 +31,7 @@ public class AuthenticatedTaskListService implements AbstractListService<Authent
 	@Autowired
 	protected AuthenticatedTaskRepository repository;
 
-	// AbstractListService<Anonymous, Shout> interface --------------
+	// AbstractListService<Authenticated, Task> interface --------------
 
 
 	@Override
@@ -55,7 +55,13 @@ public class AuthenticatedTaskListService implements AbstractListService<Authent
 		assert request != null;
 
 		Collection<Task> result;
-		result = this.repository.findMany();
+		
+		if(request.getModel().hasAttribute("workplanId")) {
+			result = this.repository.findManyByWorkplanId(request.getModel().getInteger("workplanId"));
+		}else {
+			result = this.repository.findMany();
+		}
+		
 
 		return result;
 	}

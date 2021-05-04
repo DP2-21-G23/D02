@@ -12,7 +12,12 @@
 
 package acme.features.manager.task;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +29,7 @@ import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.components.Response;
+import acme.framework.entities.Principal;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractUpdateService;
 import acme.utilities.SpamModule;
@@ -47,8 +53,20 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 	@Override
 	public boolean authorise(final Request<Task> request) {
 		assert request != null;
+		
+		boolean res;
+		int taskId;
+		final Task task;
+		final Manager manager;
+		Principal principal;
 
-		return true;
+		taskId = request.getModel().getInteger("id");
+		task = this.repository.findOneTaskById(taskId);
+		manager = task.getOwner();
+		principal = request.getPrincipal();
+		res = manager.getUserAccount().getId() == principal.getAccountId();
+
+		return res;
 	}
 
 	@Override
@@ -57,7 +75,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors);
+		request.bind(entity, errors, "taskId");
 	}
 
 	@Override
@@ -100,9 +118,25 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 			final Boolean isAfter = entity.getEndMoment().after(now);
 			errors.state(request, isAfter, "endMoment", "manager.task.form.error.past-endMoment");
 		}
-		if(!errors.hasErrors("endMoment") && entity.getStartMoment()!=null && entity.getEndMoment() != null) {
+		if(!errors.hasErrors("endMoment") && !errors.hasErrors("startMoment")) {
 			final Boolean isAfter = entity.getEndMoment().after(entity.getStartMoment());
 			errors.state(request, isAfter, "endMoment", "manager.task.form.error.incorrect-interval");
+			
+            final Calendar moments = new GregorianCalendar();
+            moments.setTime(entity.getStartMoment());
+            final LocalDateTime start = LocalDateTime.ofInstant(moments.toInstant(), ZoneId.systemDefault());
+            moments.setTime(entity.getEndMoment());
+            final LocalDateTime end = LocalDateTime.ofInstant(moments.toInstant(), ZoneId.systemDefault());
+            
+            final Long datediff = ChronoUnit.MINUTES.between(start, end);
+            Long workload = (long) entity.getWorkloadHours()*60;
+            if(entity.getWorkloadFraction()!=null) {
+                workload+=entity.getWorkloadFraction();
+            }
+            
+            if(datediff.compareTo(workload)<0) {
+                errors.state(request, false, "workloadHours", "manager.task.form.error.incorrect-workload");
+            }
 		}
 		
 		final SpamModule sm = new SpamModule(this.spamRepository);
@@ -114,7 +148,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 			errors.state(request, false, "isPublic", "manager.task.form.error.spam.is-spam");
 		}
 		
-		if(!errors.hasErrors("endMoment")) {
+		if(!errors.hasErrors("endMoment") && !errors.hasErrors("startMoment")) {
 			final Boolean incorrectDate = this.repository.isNotPossibleModificateMoment(entity.getId(), entity.getStartMoment(), entity.getEndMoment());
 			errors.state(request, !incorrectDate, "endMoment", "manager.task.form.error.incorrect-date");
 		}
@@ -124,6 +158,14 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 			errors.state(request, !notPossibleMakePrivate, "isPublic", "manager.task.form.error.impossible-make-private");
 		}
 		
+		if (!errors.hasErrors("workloadHours")) {
+			final Boolean positiveWorkloadHours = entity.getWorkloadHours() >= 0;
+			errors.state(request, positiveWorkloadHours, "workloadHours", "manager.task.form.error.negative-workload");
+		}
+		
+		if(!errors.hasErrors("workloadHours") && entity.getWorkloadHours()==0 && (entity.getWorkloadFraction()==null || entity.getWorkloadFraction()<=0)) {
+			errors.state(request, false, "workloadFraction", "manager.task.form.error.incorrect-workloadFraction");
+		}
 		
 	}
 

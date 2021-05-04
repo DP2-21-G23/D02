@@ -37,18 +37,21 @@ master.menu.anonymous.workplan.list = Workplan list
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Authenticated
-master.menu.authenticated.task.list = Tasks list
+master.menu.authenticated.task.list-finish-task = Finished tasks list
 
 # master.menu.manager #######################################################
 
 master.menu.manager = Manager
 master.menu.manager.task.list = Tasks list
 master.menu.manager.task.create = Create task
+master.menu.manager.workplan.list = Workplans list
+master.menu.manager.workplan.create = Create workplan
 
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
+master.menu.administrator.configuration = Configuration
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
@@ -72,6 +75,7 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.become-manager = Become a manager
 
 # master.footer ###############################################################
 

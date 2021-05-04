@@ -1,0 +1,42 @@
+# i18n_es.messages
+#
+# Copyright (C) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+manager.workplan.form.label.title = Título:
+manager.workplan.form.label.suggestion = Periodo de ejecución sugerido:
+manager.workplan.form.label.execution-period-start = Inicio del periodo de ejecución:
+manager.workplan.form.label.execution-period-end = Fin del periodo de ejecución:
+manager.workplan.form.label.workload = Carga de trabajo:
+manager.workplan.form.label.is-public = Publicar
+manager.workplan.form.label.available-tasks = Las siguientes tareas pueden formar parte de este plan de trabajo (todas ellas le pertenecen a usted, están dentro del periodo de ejecución y son públicas en caso de que el plan de trabajo también lo sea):
+manager.workplan.form.label.tasks = Tareas del plan de trabajo (introduzca el ID de las tareas que desea añadir, separados por comas, o bórrelos si desea quitarlas de este plan de trabajo):
+
+manager.workplan.form.button.tasks = Tareas
+manager.workplan.form.button.create = Crear
+manager.workplan.form.button.update = Actualizar
+manager.workplan.form.button.delete = Borrar
+manager.workplan.form.button.return = Volver
+
+manager.workplan.form.error.past-executionPeriodStart = El inicio no puede ser anterior a hoy
+manager.workplan.form.error.past-executionPeriodEnd = El fin no puede ser anterior a hoy
+manager.workplan.form.error.incorrect-interval = El momento de fin debe ser posterior al momento de inicio
+
+manager.workplan.form.error.spam.is-spam = Este plan de trabajo es spam, por lo que no se puede publicar
+manager.workplan.form.error.spam.has-errors = Ha ocurrido un error, por favor refresque e inténtelo de nuevo
+manager.workplan.form.error.incorrect-date = Las fechas de inicio y fin deben estar dentro de los intervalos de los planes de trabajo a los que está asociado
+manager.workplan.form.error.publish = No se puede publicar, este plan de trabajo contiene tareas privadas
+manager.workplan.form.error.publish.tasks = Las siguientes tareas impiden esta acción:
+manager.workplan.form.error.tasks.wrong-task-dates = Las siguientes tareas están fuera del periodo de ejecución:
+manager.workplan.form.error.tasks.not-owned = Las siguientes tareas no le pertenecen: 
+manager.workplan.form.error.tasks.wrong-task-ids = Las siguientes tareas no existen:
+
+manager.workplan.list.label.title = Título
+manager.workplan.list.label.execution-period-start = Inicio del periodo de ejecución
+manager.workplan.list.label.execution-period-end = Fin del periodo de ejecución
+manager.workplan.list.label.workload = Horas de carga de trabajo

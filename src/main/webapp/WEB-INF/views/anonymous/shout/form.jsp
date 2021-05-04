@@ -19,13 +19,13 @@
 	<jstl:if test="${command!='create'}">
 		<acme:form-textbox code="anonymous.shout.form.label.moment" path="moment" readonly="true"/>
 		<acme:form-textbox code="anonymous.shout.form.label.author" path="author" readonly="true"/>
-		<acme:form-textbox code="anonymous.shout.form.label.text" path="text" readonly="true"/>
-		<acme:form-textbox code="anonymous.shout.form.label.info" path="info" readonly="true"/>
+		<acme:form-textarea code="anonymous.shout.form.label.text" path="text" readonly="true"/>
+		<acme:form-url code="anonymous.shout.form.label.info" path="info" readonly="true"/>
 	</jstl:if>
 	<jstl:if test="${command=='create' }">
 		<acme:form-textbox code="anonymous.shout.form.label.author" path="author"/>
-		<acme:form-textbox code="anonymous.shout.form.label.text" path="text"/>
-		<acme:form-textbox code="anonymous.shout.form.label.info" path="info"/>
+		<acme:form-textarea code="anonymous.shout.form.label.text" path="text"/>
+		<acme:form-url code="anonymous.shout.form.label.info" path="info"/>
 	</jstl:if>
 	<acme:form-submit code="anonymous.shout.form.button.create" action="/anonymous/shout/create"/>
 	<acme:form-return code="anonymous.shout.form.button.return"/>

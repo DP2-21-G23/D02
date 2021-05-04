@@ -31,6 +31,11 @@ public class Task extends DomainEntity {
 	//  Attributes
 	
 	@NotBlank
+	@Length(max=10)
+	@Column(unique = true)
+	protected String taskId;
+	
+	@NotBlank
 	@Length(max = 80)
 	protected String title;
 	

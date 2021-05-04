@@ -1,0 +1,42 @@
+# i18n_en.messages
+#
+# Copyright (C) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+manager.workplan.form.label.title = Title:
+manager.workplan.form.label.suggestion = Suggested execution period:
+manager.workplan.form.label.execution-period-start = Execution period start:
+manager.workplan.form.label.execution-period-end = Execution period end:
+manager.workplan.form.label.workload = Workload:
+manager.workplan.form.label.is-public = Publish
+manager.workplan.form.label.available-tasks = The following tasks can be part of this work plan (they all belong to you, are within the execution period and are public if so is the work plan):
+manager.workplan.form.label.tasks = Work plan tasks (enter the task ID of the tasks you wish to add, separated by commas, or remove them if you wish to delete them from this work plan):
+
+manager.workplan.form.button.tasks = Tasks
+manager.workplan.form.button.create = Create
+manager.workplan.form.button.update = Update
+manager.workplan.form.button.delete = Delete
+manager.workplan.form.button.return = Return
+
+manager.workplan.form.error.past-executionPeriodStart = The start cannot be earlier than today
+manager.workplan.form.error.past-executionPeriodEnd = The end cannot be earlier than today
+manager.workplan.form.error.incorrect-interval = The end moment must be after the start moment
+
+manager.workplan.form.error.spam.is-spam = This work plan is spam, and therefore will not be allowed to be published
+manager.workplan.form.error.spam.has-errors = An error has occurred, please refresh and try again
+manager.workplan.form.error.incorrect-date = Start and end dates must be within the intervals of the work plans to which it is associated
+manager.workplan.form.error.publish = It cannot be published, this work plan contains private tasks
+manager.workplan.form.error.publish.tasks = The following tasks impede this action:
+manager.workplan.form.error.tasks.wrong-task-dates = The following tasks are not within the execution period:
+manager.workplan.form.error.tasks.not-owned = The following tasks do not belong to you: 
+manager.workplan.form.error.tasks.wrong-task-ids = The following tasks do not exist:
+
+manager.workplan.list.label.title = Title
+manager.workplan.list.label.execution-period-start = Execution period start
+manager.workplan.list.label.execution-period-end = Execution period end
+manager.workplan.list.label.workload = Workload Hours
