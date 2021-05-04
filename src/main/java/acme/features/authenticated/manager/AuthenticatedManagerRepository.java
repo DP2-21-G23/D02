@@ -19,7 +19,7 @@ import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AuthenticatedManagerRoleRepository extends AbstractRepository {
+public interface AuthenticatedManagerRepository extends AbstractRepository {
 
 	@Query("select ua from UserAccount ua where ua.id = ?1")
 	UserAccount findOneUserAccountById(int id);

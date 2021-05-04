@@ -6,29 +6,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import acme.entities.roles.ManagerRole;
+import acme.entities.roles.Manager;
 import acme.entities.workplans.Workplan;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 
 @Controller
-@RequestMapping("/manager-role/workplan/")
-public class ManagerRoleWorkplanController extends AbstractController<ManagerRole, Workplan> {
+@RequestMapping("/manager/workplan/")
+public class ManagerWorkplanController extends AbstractController<Manager, Workplan> {
 
 	@Autowired
-	protected ManagerRoleWorkplanListService listService;
+	protected ManagerWorkplanListService listService;
 	
 	@Autowired
-	protected ManagerRoleWorkplanShowService showService;
+	protected ManagerWorkplanShowService showService;
 	
 	@Autowired
-	protected ManagerRoleWorkplanCreateService createService;
+	protected ManagerWorkplanCreateService createService;
 	
 	@Autowired
-	protected ManagerRoleWorkplanDeleteService deleteService;
+	protected ManagerWorkplanDeleteService deleteService;
 	
 	@Autowired
-	protected ManagerRoleWorkplanUpdateService updateService;
+	protected ManagerWorkplanUpdateService updateService;
 	
 	@PostConstruct
 	protected void initialise() {

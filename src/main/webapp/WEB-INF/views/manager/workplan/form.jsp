@@ -32,29 +32,29 @@
 	</jstl:if>
 	<jstl:if test="${command != 'create'}">
 		<acme:form-checkbox code="manager.workplan.form.label.is-public" path="isPublic"/>
-		<acme:form-return code="manager.workplan.form.button.tasks" action="/manager-role/task/list?workplanId=${id}"/>
+		<acme:form-return code="manager.workplan.form.button.tasks" action="/manager/task/list?workplanId=${id}"/>
 	</jstl:if>
 	<acme:form-submit test="${command == 'create'}" 
 		code="manager.workplan.form.button.create" 
-		action="/manager-role/workplan/create"/>
+		action="/manager/workplan/create"/>
 	<acme:form-submit test="${command == 'show'}" 
 		code="manager.workplan.form.button.update" 
-		action="/manager-role/workplan/update"/>
+		action="/manager/workplan/update"/>
 		<acme:form-submit test="${command == 'show'}" 
 		code="manager.workplan.form.button.delete" 
-		action="/manager-role/workplan/delete"/>
+		action="/manager/workplan/delete"/>
 	<acme:form-submit test="${command == 'update'}" 
 		code="manager.workplan.form.button.update" 
-		action="/manager-role/workplan/update"/>
+		action="/manager/workplan/update"/>
 	<acme:form-submit test="${command == 'update'}" 
 		code="manager.workplan.form.button.delete" 
-		action="/manager-role/workplan/delete"/>
+		action="/manager/workplan/delete"/>
 	<acme:form-submit test="${command == 'delete'}" 
 		code="manager.workplan.form.button.update" 
-		action="/manager-role/workplan/update"/>
+		action="/manager/workplan/update"/>
 	<acme:form-submit test="${command == 'delete'}" 
 		code="manager.workplan.form.button.delete" 
-		action="/manager-role/workplan/delete"/>
+		action="/manager/workplan/delete"/>
 
 	<acme:form-return code="manager.workplan.form.button.return"/>
 	

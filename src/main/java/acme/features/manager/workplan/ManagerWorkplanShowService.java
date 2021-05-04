@@ -10,7 +10,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.roles.ManagerRole;
+import acme.entities.roles.Manager;
 import acme.entities.tasks.Task;
 import acme.entities.workplans.Workplan;
 import acme.framework.components.Model;
@@ -19,10 +19,10 @@ import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class ManagerRoleWorkplanShowService implements AbstractShowService<ManagerRole, Workplan> {
+public class ManagerWorkplanShowService implements AbstractShowService<Manager, Workplan> {
 
 	@Autowired
-	protected ManagerRoleWorkplanRepository repository;
+	protected ManagerWorkplanRepository repository;
 	
 	@Override
 	public boolean authorise(final Request<Workplan> request) {
@@ -31,7 +31,7 @@ public class ManagerRoleWorkplanShowService implements AbstractShowService<Manag
 		boolean res;
 		int workplanId;
 		final Workplan workplan;
-		final ManagerRole manager;
+		final Manager manager;
 		Principal principal;
 
 		workplanId = request.getModel().getInteger("id");
