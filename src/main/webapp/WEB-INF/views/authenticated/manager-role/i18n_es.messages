@@ -15,4 +15,4 @@ authenticated.manager.form.button.create = Sí
 authenticated.manager.form.button.update = Actualizar
 authenticated.manager.form.button.return = Volver
 
-administrator.manager.form.title = ¿Está seguro de que quiere convertirse en un administrador?
+authenticated.manager.form.title = ¿Está seguro de que quiere convertirse en un gerente?

@@ -5,7 +5,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.roles.Manager;
+import acme.entities.roles.ManagerRole;
 import acme.entities.workplans.Workplan;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
@@ -18,10 +18,10 @@ import acme.framework.services.AbstractCreateService;
 import acme.utilities.SpamRepository;
 
 @Service
-public class ManagerWorkplanCreateService implements AbstractCreateService<Manager, Workplan> {
+public class ManagerRoleWorkplanCreateService implements AbstractCreateService<ManagerRole, Workplan> {
 
 	@Autowired
-	protected ManagerWorkplanRepository repository;
+	protected ManagerRoleWorkplanRepository repository;
 	
 	@Autowired
 	protected SpamRepository spamRepository;
@@ -60,7 +60,7 @@ public class ManagerWorkplanCreateService implements AbstractCreateService<Manag
 
 		final Workplan result;
 		final Principal principal;
-		final Manager manager;
+		final ManagerRole manager;
 		int userAccountId;
 		
 		result = new Workplan();

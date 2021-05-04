@@ -10,10 +10,10 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.roles.Manager;
+import acme.entities.roles.ManagerRole;
 import acme.entities.tasks.Task;
 import acme.entities.workplans.Workplan;
-import acme.features.manager.task.ManagerTaskRepository;
+import acme.features.manager.task.ManagerRoleTaskRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
@@ -27,13 +27,13 @@ import acme.utilities.SpamModule.SpamModuleResult;
 import acme.utilities.SpamRepository;
 
 @Service
-public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manager, Workplan> {
+public class ManagerRoleWorkplanUpdateService implements AbstractUpdateService<ManagerRole, Workplan> {
 
 	@Autowired
-	protected ManagerWorkplanRepository repository;
+	protected ManagerRoleWorkplanRepository repository;
 	
 	@Autowired
-	protected ManagerTaskRepository taskRepository;
+	protected ManagerRoleTaskRepository taskRepository;
 	
 	@Autowired
 	protected SpamRepository spamRepository;
@@ -45,7 +45,7 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 		boolean res;
 		int workplanId;
 		final Workplan workplan;
-		final Manager manager;
+		final ManagerRole manager;
 		Principal principal;
 
 		workplanId = request.getModel().getInteger("id");
@@ -193,7 +193,7 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 					}
 					final Task t = this.repository.findOneTaskByTaskId(taskId);
 					boolean taskOwned;
-					final Manager manager;
+					final ManagerRole manager;
 					Principal principal;
 
 					manager = t.getOwner();

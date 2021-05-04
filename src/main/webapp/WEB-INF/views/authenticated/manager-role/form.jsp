@@ -16,13 +16,13 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <h3>
-	<acme:message code="administrator.manager.form.title" />
+	<acme:message code="authenticated.manager.form.title" />
 </h3>
 
 <br/>
 
 <acme:form>
-	<acme:form-submit test="${command == 'create'}" code="authenticated.manager.form.button.create" action="/authenticated/manager/create"/>
-	<acme:form-submit test="${command == 'update'}" code="authenticated.manager.form.button.update" action="/authenticated/manager/update"/>
+	<acme:form-submit test="${command == 'create'}" code="authenticated.manager.form.button.create" action="/authenticated/manager-role/create"/>
+	<acme:form-submit test="${command == 'update'}" code="authenticated.manager.form.button.update" action="/authenticated/manager-role/update"/>
 	<acme:form-return code="authenticated.manager.form.button.return"/>
 </acme:form>

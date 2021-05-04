@@ -1,5 +1,5 @@
 /*
- * ManagerTaskUpdateService.java
+ * ManagerRoleTaskUpdateService.java
  *
  * Copyright (C) 2012-2021 Rafael Corchuelo.
  *
@@ -22,7 +22,7 @@ import java.util.GregorianCalendar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.roles.Manager;
+import acme.entities.roles.ManagerRole;
 import acme.entities.tasks.Task;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
@@ -37,17 +37,17 @@ import acme.utilities.SpamModule.SpamModuleResult;
 import acme.utilities.SpamRepository;
 
 @Service
-public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, Task> {
+public class ManagerRoleTaskUpdateService implements AbstractUpdateService<ManagerRole, Task> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected ManagerTaskRepository repository;
+	protected ManagerRoleTaskRepository repository;
 	
 	@Autowired
 	protected SpamRepository spamRepository;
 	
-	// AbstractUpdateService<Manager, Task> interface ---------------
+	// AbstractUpdateService<ManagerRole, Task> interface ---------------
 
 
 	@Override
@@ -57,7 +57,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		boolean res;
 		int taskId;
 		final Task task;
-		final Manager manager;
+		final ManagerRole manager;
 		Principal principal;
 
 		taskId = request.getModel().getInteger("id");

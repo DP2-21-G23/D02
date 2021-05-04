@@ -22,7 +22,7 @@ import java.util.GregorianCalendar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.roles.Manager;
+import acme.entities.roles.ManagerRole;
 import acme.entities.tasks.Task;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
@@ -37,17 +37,17 @@ import acme.utilities.SpamModule.SpamModuleResult;
 import acme.utilities.SpamRepository;
 
 @Service
-public class ManagerTaskCreateService implements AbstractCreateService<Manager, Task> {
+public class ManagerRoleTaskCreateService implements AbstractCreateService<ManagerRole, Task> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected ManagerTaskRepository repository;
+	protected ManagerRoleTaskRepository repository;
 	
 	@Autowired
 	protected SpamRepository spamRepository;
 
-	// AbstractCreateService<Manager, Task> interface ---------------
+	// AbstractCreateService<ManagerRole, Task> interface ---------------
 
 
 	@Override
@@ -82,14 +82,14 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 
 		final Task result;
 		final Principal principal;
-		final Manager manager;
+		final ManagerRole manager;
 		int userAccountId;
 		
 		result = new Task();
 		principal = request.getPrincipal();
 		
 		userAccountId = principal.getActiveRoleId();
-		manager = this.repository.findOneManagerById(userAccountId);
+		manager = this.repository.findOneManagerRoleById(userAccountId);
 		
 		result.setOwner(manager);
 		

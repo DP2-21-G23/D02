@@ -13,7 +13,7 @@ import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import acme.entities.roles.Manager;
+import acme.entities.roles.ManagerRole;
 import acme.entities.tasks.Task;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
@@ -50,7 +50,7 @@ public class Workplan extends DomainEntity {
 	protected Collection<Task> tasks;
 	
 	@ManyToOne(optional=false)
-	protected Manager owner;
+	protected ManagerRole owner;
 	
 	
 	// -------------- Derived Attributes --------------
