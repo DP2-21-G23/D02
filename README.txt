@@ -12,3 +12,6 @@ This is the Acme Planner Project, which is intended to be a core learning asset 
 who have enroled the Design and Testing subject of the Software Engineering curriculum of the 
 University of Sevilla.  This project helps them start working on their new information system 
 projects.
+
+Github: https://github.com/adrferfer/D02
+Github release: https://github.com/adrferfer/D02/releases/tag/1.0
