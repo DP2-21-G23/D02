@@ -108,7 +108,7 @@
 		</property>
 	</bean>
 
-	<bean name="managerManager" class="acme.entities.roles.ManagerRole">
+	<bean name="managerManager" class="acme.entities.roles.Manager">
 		<property name="userAccount" ref="managerUserAccount" />
 	</bean>
 	

@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.manager.task;
+package acme.features.authenticated.manager;
 
 import javax.annotation.PostConstruct;
 
@@ -18,42 +18,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import acme.entities.roles.ManagerRole;
-import acme.entities.tasks.Task;
+import acme.entities.roles.Manager;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
+import acme.framework.entities.Authenticated;
 
 @Controller
-@RequestMapping("/manager-role/task/")
-public class ManagerRoleTaskController extends AbstractController<ManagerRole, Task> {
+@RequestMapping("/authenticated/manager/")
+public class AuthenticatedManagerController extends AbstractController<Authenticated, Manager> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected ManagerRoleTaskListService	listService;
+	protected AuthenticatedManagerCreateService	createService;
 
-	@Autowired
-	protected ManagerRoleTaskShowService showService;
-	
-	@Autowired
-	protected ManagerRoleTaskCreateService createService;
-	
-	@Autowired
-	protected ManagerRoleTaskUpdateService updateService;
-	
-	@Autowired
-	protected ManagerRoleTaskDeleteService deleteService;
-	
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
-		super.addBasicCommand(BasicCommand.LIST, this.listService);
-		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
-		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
-		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
 	}
 
 }

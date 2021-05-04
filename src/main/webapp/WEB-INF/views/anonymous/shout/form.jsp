@@ -27,6 +27,6 @@
 		<acme:form-textarea code="anonymous.shout.form.label.text" path="text"/>
 		<acme:form-url code="anonymous.shout.form.label.info" path="info"/>
 	</jstl:if>
-	<acme:form-submit code="anonymous.shout.form.button.create" action="/anonymous/shout/create"/>
+	<acme:form-submit test="${command=='create'}" code="anonymous.shout.form.button.create" action="/anonymous/shout/create"/>
 	<acme:form-return code="anonymous.shout.form.button.return"/>
 </acme:form>

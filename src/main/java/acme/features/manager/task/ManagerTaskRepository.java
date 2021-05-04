@@ -19,22 +19,22 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.roles.ManagerRole;
+import acme.entities.roles.Manager;
 import acme.entities.tasks.Task;
 import acme.entities.workplans.Workplan;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface ManagerRoleTaskRepository extends AbstractRepository {
+public interface ManagerTaskRepository extends AbstractRepository {
 
 	@Query("select ct from Task ct where ct.owner.id = :id")
-	Collection<Task> findManagerRoleTaskById(@Param("id") int id);
+	Collection<Task> findManagerTaskById(@Param("id") int id);
 
 	@Query("select t from Task t where t.id = :id")
 	Task findOneTaskById(@Param("id") int id);
 	
-	@Query("select m from ManagerRole m where m.id = :id")
-	ManagerRole findOneManagerRoleById(@Param("id") int id);
+	@Query("select m from Manager m where m.id = :id")
+	Manager findOneManagerById(@Param("id") int id);
 	
 	@Query("select count(wp)>0 from Workplan wp join wp.tasks as t where t.id = :id and (:startMoment < wp.executionPeriodStart or :endMoment > wp.executionPeriodEnd)")
 	Boolean isNotPossibleModificateMoment(@Param("id") int id, @Param("startMoment") Date startMoment, @Param("endMoment") Date endMoment);

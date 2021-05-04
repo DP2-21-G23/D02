@@ -17,7 +17,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.roles.ManagerRole;
+import acme.entities.roles.Manager;
 import acme.entities.tasks.Task;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -25,12 +25,12 @@ import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class ManagerRoleTaskListService implements AbstractListService<ManagerRole, Task> {
+public class ManagerTaskListService implements AbstractListService<Manager, Task> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected ManagerRoleTaskRepository repository;
+	protected ManagerTaskRepository repository;
 
 	// AbstractListService<Anonymous, Shout> interface --------------
 
@@ -66,7 +66,7 @@ public class ManagerRoleTaskListService implements AbstractListService<ManagerRo
 		if(request.getModel().hasAttribute("workplanId")) {
 			result = this.repository.findManyByWorkplanId(request.getModel().getInteger("workplanId"));
 		}else {
-			result = this.repository.findManagerRoleTaskById(userId);
+			result = this.repository.findManagerTaskById(userId);
 		}
 		
 

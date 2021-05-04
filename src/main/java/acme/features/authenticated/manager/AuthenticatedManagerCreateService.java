@@ -1,5 +1,5 @@
 /*
- * AuthenticatedManagerRoleCreateService.java
+ * AuthenticatedManagerCreateService.java
  *
  * Copyright (C) 2012-2021 Rafael Corchuelo.
  *
@@ -15,7 +15,7 @@ package acme.features.authenticated.manager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.roles.ManagerRole;
+import acme.entities.roles.Manager;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
@@ -28,32 +28,32 @@ import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractCreateService;
 
 @Service
-public class AuthenticatedManagerRoleCreateService implements AbstractCreateService<Authenticated, ManagerRole> {
+public class AuthenticatedManagerCreateService implements AbstractCreateService<Authenticated, Manager> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedManagerRoleRepository repository;
+	protected AuthenticatedManagerRepository repository;
 
-	// AbstractCreateService<Authenticated, ManagerRole> ---------------------------
+	// AbstractCreateService<Authenticated, Manager> ---------------------------
 
 
 	@Override
-	public boolean authorise(final Request<ManagerRole> request) {
+	public boolean authorise(final Request<Manager> request) {
 		assert request != null;
 
 		return true;
 	}
 
 	@Override
-	public void validate(final Request<ManagerRole> request, final ManagerRole entity, final Errors errors) {
+	public void validate(final Request<Manager> request, final Manager entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
 	}
 
 	@Override
-	public void bind(final Request<ManagerRole> request, final ManagerRole entity, final Errors errors) {
+	public void bind(final Request<Manager> request, final Manager entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -62,7 +62,7 @@ public class AuthenticatedManagerRoleCreateService implements AbstractCreateServ
 	}
 
 	@Override
-	public void unbind(final Request<ManagerRole> request, final ManagerRole entity, final Model model) {
+	public void unbind(final Request<Manager> request, final Manager entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
@@ -71,10 +71,10 @@ public class AuthenticatedManagerRoleCreateService implements AbstractCreateServ
 	}
 
 	@Override
-	public ManagerRole instantiate(final Request<ManagerRole> request) {
+	public Manager instantiate(final Request<Manager> request) {
 		assert request != null;
 
-		ManagerRole result;
+		Manager result;
 		Principal principal;
 		int userAccountId;
 		UserAccount userAccount;
@@ -83,14 +83,14 @@ public class AuthenticatedManagerRoleCreateService implements AbstractCreateServ
 		userAccountId = principal.getAccountId();
 		userAccount = this.repository.findOneUserAccountById(userAccountId);
 
-		result = new ManagerRole();
+		result = new Manager();
 		result.setUserAccount(userAccount);
 
 		return result;
 	}
 
 	@Override
-	public void create(final Request<ManagerRole> request, final ManagerRole entity) {
+	public void create(final Request<Manager> request, final Manager entity) {
 		assert request != null;
 		assert entity != null;
 
@@ -98,7 +98,7 @@ public class AuthenticatedManagerRoleCreateService implements AbstractCreateServ
 	}
 
 	@Override
-	public void onSuccess(final Request<ManagerRole> request, final Response<ManagerRole> response) {
+	public void onSuccess(final Request<Manager> request, final Response<Manager> response) {
 		assert request != null;
 		assert response != null;
 

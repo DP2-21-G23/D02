@@ -14,7 +14,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 import org.hibernate.validator.constraints.URL;
 
-import acme.entities.roles.ManagerRole;
+import acme.entities.roles.Manager;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -67,6 +67,6 @@ public class Task extends DomainEntity {
 	// -------------- Relationships --------------
 	
 	@ManyToOne(optional=false)
-	protected ManagerRole owner;
+	protected Manager owner;
 
 }

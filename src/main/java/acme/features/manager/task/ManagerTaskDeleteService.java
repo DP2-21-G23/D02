@@ -6,7 +6,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.roles.ManagerRole;
+import acme.entities.roles.Manager;
 import acme.entities.tasks.Task;
 import acme.entities.workplans.Workplan;
 import acme.framework.components.Errors;
@@ -16,16 +16,16 @@ import acme.framework.entities.Principal;
 import acme.framework.services.AbstractDeleteService;
 
 @Service
-public class ManagerRoleTaskDeleteService implements AbstractDeleteService<ManagerRole, Task> {
+public class ManagerTaskDeleteService implements AbstractDeleteService<Manager, Task> {
 
 	// Internal state
 
 	@Autowired
-	protected ManagerRoleTaskRepository repository;
+	protected ManagerTaskRepository repository;
 
 	
 
-	// AbstractDeleteService<ManagerRole, Task> interface
+	// AbstractDeleteService<Manager, Task> interface
 
 	@Override
 	public boolean authorise(final Request<Task> request) {
@@ -34,7 +34,7 @@ public class ManagerRoleTaskDeleteService implements AbstractDeleteService<Manag
 		boolean res;
 		int taskId;
 		final Task task;
-		final ManagerRole manager;
+		final Manager manager;
 		Principal principal;
 
 		taskId = request.getModel().getInteger("id");
