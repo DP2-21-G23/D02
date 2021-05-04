@@ -22,7 +22,7 @@
 	<description>This is the Acme Planner project, based on the Starter Project, provided by the lecturers for the students of Design &amp; Testing.</description>
 
 	<artifactId>Acme-Planner</artifactId>
-	<version>21.2</version>
+	<version>21.3</version>
 	<packaging>war</packaging>
 
 	<parent>
