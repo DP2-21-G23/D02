@@ -14,8 +14,8 @@ manager.workplan.form.label.execution-period-start = Inicio del periodo de ejecu
 manager.workplan.form.label.execution-period-end = Fin del periodo de ejecución:
 manager.workplan.form.label.workload = Carga de trabajo:
 manager.workplan.form.label.is-public = Publicar
-manager.workplan.form.label.available-tasks = Las siguientes tareas pueden ser añadidas al plan de trabajo (todas ellas le pertenecen a usted, están dentro del periodo de ejecución y son públicas si el plan de trabajo también lo es):
-manager.workplan.form.label.tasks = Tareas del plan de trabajo (introduzca los IDs de tarea, separados por comas, o bórrelos si desea eliminarlos):
+manager.workplan.form.label.available-tasks = Las siguientes tareas pueden formar parte de este plan de trabajo (todas ellas le pertenecen a usted, están dentro del periodo de ejecución y son públicas en caso de que el plan de trabajo también lo sea):
+manager.workplan.form.label.tasks = Tareas del plan de trabajo (introduzca el ID de las tareas que desea añadir, separados por comas, o bórrelos si desea quitarlas de este plan de trabajo):
 
 manager.workplan.form.button.tasks = Tareas
 manager.workplan.form.button.create = Crear
