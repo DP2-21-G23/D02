@@ -3,7 +3,7 @@ package acme.features.manager.workplan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.roles.Manager;
+import acme.entities.roles.ManagerRole;
 import acme.entities.workplans.Workplan;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -12,10 +12,10 @@ import acme.framework.entities.Principal;
 import acme.framework.services.AbstractDeleteService;
 
 @Service
-public class ManagerWorkplanDeleteService implements AbstractDeleteService<Manager, Workplan> {
+public class ManagerRoleWorkplanDeleteService implements AbstractDeleteService<ManagerRole, Workplan> {
 
 	@Autowired
-	protected ManagerWorkplanRepository repository;
+	protected ManagerRoleWorkplanRepository repository;
 	
 	@Override
 	public boolean authorise(final Request<Workplan> request) {
@@ -24,7 +24,7 @@ public class ManagerWorkplanDeleteService implements AbstractDeleteService<Manag
 		boolean res;
 		int workplanId;
 		final Workplan workplan;
-		final Manager manager;
+		final ManagerRole manager;
 		Principal principal;
 
 		workplanId = request.getModel().getInteger("id");

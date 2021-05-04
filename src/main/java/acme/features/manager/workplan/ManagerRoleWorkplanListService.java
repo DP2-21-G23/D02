@@ -5,7 +5,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.roles.Manager;
+import acme.entities.roles.ManagerRole;
 import acme.entities.workplans.Workplan;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -13,10 +13,10 @@ import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class ManagerWorkplanListService implements AbstractListService<Manager, Workplan> {
+public class ManagerRoleWorkplanListService implements AbstractListService<ManagerRole, Workplan> {
 
 	@Autowired
-	protected ManagerWorkplanRepository repository;
+	protected ManagerRoleWorkplanRepository repository;
 	
 	@Override
 	public boolean authorise(final Request<Workplan> request) {
@@ -47,7 +47,7 @@ public class ManagerWorkplanListService implements AbstractListService<Manager, 
 		
 		Collection<Workplan> result;
 		
-		result = this.repository.findWorkplansByManagerId(userId);
+		result = this.repository.findWorkplansByManagerRoleId(userId);
 
 		return result;
 	}

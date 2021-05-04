@@ -18,12 +18,8 @@
 
 <tiles-definitions>
 
-	<definition name="manager/workplan/form" extends="master">
-		<put-attribute name="body" type="template" value="../manager/workplan/form.jsp" />
-	</definition>
-	
-	<definition name="manager/workplan/list" extends="master">
-		<put-attribute name="body" type="template" value="../manager/workplan/list.jsp" />
+	<definition name="authenticated/manager-role/form" extends="master">
+		<put-attribute name="body" type="template" value="../authenticated/manager-role/form.jsp" />
 	</definition>
 	
 </tiles-definitions>
