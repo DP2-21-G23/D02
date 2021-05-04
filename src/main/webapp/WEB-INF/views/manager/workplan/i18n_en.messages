@@ -14,8 +14,8 @@ manager.workplan.form.label.execution-period-start = Execution period start:
 manager.workplan.form.label.execution-period-end = Execution period end:
 manager.workplan.form.label.workload = Workload:
 manager.workplan.form.label.is-public = Publish
-manager.workplan.form.label.available-tasks = The following tasks can be added to the work plan (they all belong to you, are within the execution period and are public if so is the work plan):
-manager.workplan.form.label.tasks = Work plan tasks (enter the desired task IDs, separated by commas, or remove them if you wish to delete them):
+manager.workplan.form.label.available-tasks = The following tasks can be part of this work plan (they all belong to you, are within the execution period and are public if so is the work plan):
+manager.workplan.form.label.tasks = Work plan tasks (enter the task ID of the tasks you wish to add, separated by commas, or remove them if you wish to delete them from this work plan):
 
 manager.workplan.form.button.tasks = Tasks
 manager.workplan.form.button.create = Create
